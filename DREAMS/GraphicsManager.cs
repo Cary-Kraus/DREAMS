@@ -8,23 +8,17 @@ using System.Windows.Forms;
 
 namespace DREAMS
 {
-    internal static class Animation
+    internal static class GraphicsManager
     {
-        private static PictureBox pictureBox;
-        public static void Initialize(PictureBox pb)
+        internal static void AddSprite(Sprite sprite, Graphics g)
         {
-            pictureBox = pb;
-        }
-        internal static void AddSprite(Sprite sprite)
-        {
-            //g.DrawImage(sprite.img, 50, 50);
-            pictureBox.Controls.Add(sprite.GetPictureBox());
+            g.DrawImage(sprite.img, new Rectangle(0, 0, 200, 200));
         }
         static void ChangeSprite(Sprite sprite1, Sprite sprite2, Graphics g)
         {
 
         }
-        static void DelSprite(Sprite sprite, /*Graphics g*/ Form Form1)
+        static void DelSprite(Sprite sprite, Graphics g)
         {
 
         }
@@ -32,7 +26,7 @@ namespace DREAMS
         {
             g.Clear(Color.White);
         }
-        static void AddAll(Sprite sprite)
+        static void AddAll(Sprite sprite, Graphics g)
         {
 
         }

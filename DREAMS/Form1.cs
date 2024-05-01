@@ -15,19 +15,16 @@ namespace DREAMS
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //foreach( var sprite in Sprite.GetAll())
-            //    sprite.Draw(e.Graphics);
-
-            //Sprite sprite1 = new Sprite(Image.FromFile("1.png"));
-            //Animation.AddSprite(sprite1, new RectangleF(50, 50, 200, 200), e.Graphics);
+            InitializeComponent();
+            GraphicsManager.AddSprite(new Sprite("1.png"), e.Graphics);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
         public Form1()
         {
             InitializeComponent();
-
-            Animation.Initialize(pictureBox1);
-            Sprite sprite1 = new Sprite("1.png", 0, 0);
-            Animation.AddSprite(sprite1);
         }
     }
 }
