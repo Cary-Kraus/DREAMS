@@ -1,0 +1,11 @@
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\bin\Debug\DREAMS.exe.config
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\bin\Debug\DREAMS.exe
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\bin\Debug\DREAMS.pdb
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.csproj.AssemblyReference.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.csproj.SuggestedBindingRedirects.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.Properties.Resources.resources
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.csproj.GenerateResource.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.csproj.CoreCompileInputs.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.exe
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.pdb
+D:\Programming\VisualStudio\C#\diplom\DREAMS\DREAMS\obj\Debug\DREAMS.Form1.resources
