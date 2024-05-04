@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+using AdventureEngine;
 
 namespace DREAMS
 {
@@ -15,17 +16,16 @@ namespace DREAMS
         internal Image img;
         internal Size size;
 
-        protected static List<Sprite> sprites = new List<Sprite>();
-        public Sprite(string imagePath)
+        //protected static List<Sprite> sprites = new List<Sprite>();
+        public Sprite(string imagePath, int coordX, int coordY)
         {
-            Bitmap image = new Bitmap(imagePath);
+            image = new Bitmap(imagePath);
             img = image;
+            coords.X = coordX;
+            coords.Y = coordY;
         }
 
-        public static List<Sprite> GetAll()
-        {
-            return sprites;
-        }
+        
 
     }
 }

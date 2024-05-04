@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DREAMS;
 
-namespace DREAMS
+namespace AdventureEngine
 {
-    
+    /// <summary>
+    /// Главный класс движка.
+    /// </summary>
     internal static class AdventureGame
     {
         private static void AddRoom()
