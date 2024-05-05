@@ -16,7 +16,6 @@ namespace DREAMS
         internal Image img;
         internal Size size;
 
-        //protected static List<Sprite> sprites = new List<Sprite>();
         public Sprite(string imagePath, int coordX, int coordY)
         {
             image = new Bitmap(imagePath);
