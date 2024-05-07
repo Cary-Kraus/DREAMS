@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace AdventureEngine
 
         public static List<Sprite> GetAllSprites()
         {
-            return sprites;
+            return sprites;           
         }
         static void AddSprite(Sprite sprite, Graphics g)
         {
@@ -30,7 +31,12 @@ namespace AdventureEngine
         }
         static void ChangeSprite(Sprite sprite1, Sprite sprite2, Graphics g)
         {
-
+            //int index1 = sprites.IndexOf(sprite1);
+            //int index2 = sprites.IndexOf(sprite2);            
+            sprites[sprites.IndexOf(sprite1)] = sprite2;
+            sprites[sprites.IndexOf(sprite2)] = sprite1;
+            g.DrawImage(sprite1.img, sprite1.coords);
+            
         }
         static void DelSprite(Sprite sprite, Graphics g)
         {
