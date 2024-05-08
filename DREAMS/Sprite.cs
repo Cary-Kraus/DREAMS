@@ -16,12 +16,10 @@ namespace DREAMS
         internal Image img;
         internal Size size;
 
-        public Sprite(string imagePath, int coordX, int coordY)
+        public Sprite(string imagePath)
         {
             image = new Bitmap(imagePath);
             img = image;
-            coords.X = coordX;
-            coords.Y = coordY;
         }
 
         

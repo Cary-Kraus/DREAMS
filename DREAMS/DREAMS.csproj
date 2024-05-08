@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actor.cs" />
-    <Compile Include="AdventureGame.cs" />
-    <Compile Include="GraphicsManager.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Form1.cs">

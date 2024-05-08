@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using DREAMS;
 
 namespace AdventureEngine
 {
@@ -15,33 +13,42 @@ namespace AdventureEngine
     /// Методы: Добавить спрайт, Поменять спрайт, Удалить спрайт, 
     ///         Добавить все спрайты (Обновить графику), Удалить все спрайты (Очистить поле).
     /// </summary>
-    internal static class GraphicsManager      
+    internal static class GraphicsManager
     {
         static double scalling_coef; //коэффициент масштабирования
         static List<Sprite> sprites = new List<Sprite>();
+        static Graphics g;
 
-        public static List<Sprite> GetAllSprites()
+        /// <summary>
+        /// Добавляет sprite в список. Отображает sprite по координатам x и y.
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        static void AddSprite(Sprite sprite, int x, int y)
         {
-            return sprites;
+            sprites.Add(sprite);
+            g.DrawImage(sprite.img, x, y);
         }
-        static void AddSprite(Sprite sprite, Graphics g)
+        static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {
-            g.DrawImage(sprite.img, sprite.coords);
-        }
-        static void ChangeSprite(Sprite sprite1, Sprite sprite2, Graphics g)
-        {
+            sprites[sprites.IndexOf(sprite1)] = sprite2;
+            sprites[sprites.IndexOf(sprite2)] = sprite1;
 
         }
-        static void DelSprite(Sprite sprite, Graphics g)
+        static void DelSprite(Sprite sprite)
         {
-            //g.Clear(Color.White); удаляет все, а нужно конкретный sprite
+            //sprites.Remove(sprites[sprites.IndexOf(sprite)]);
+            sprites.Remove(sprite);
+            DrawAll(g);
         }
-        static void DelAll(Graphics g)
+        static void DelAll()
         {
-            g.Clear(Color.White);
+            g.Clear(Color.Black);
         }
         internal static void DrawAll(Graphics g)
         {
+            g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
                 g.DrawImage(sprite.img, sprite.coords);
