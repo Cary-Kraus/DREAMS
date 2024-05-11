@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DREAMS
+namespace AdventureEngine
 {
-    internal class Object
+    public class Object
     {
         protected Image image;
         internal Point coords;

@@ -36,8 +36,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actor.cs" />
     <Compile Include="AdventureGame.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="GraphicsManager.cs" />
+    <Compile Include="Object.cs" />
+    <Compile Include="Quest.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="Sprite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,3 @@
+D:\Programming\VisualStudio\C#\diplom\DREAMS\AdventureEngine\obj\Debug\AdventureEngine.csproj.AssemblyReference.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\AdventureEngine\obj\Debug\AdventureEngine.csproj.SuggestedBindingRedirects.cache
+D:\Programming\VisualStudio\C#\diplom\DREAMS\AdventureEngine\obj\Debug\AdventureEngine.csproj.CoreCompileInputs.cache

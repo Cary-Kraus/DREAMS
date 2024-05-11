@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using System.Drawing;
 using Image = System.Drawing.Image;
-using AdventureEngine;
 
-namespace DREAMS
+namespace AdventureEngine
 {
-    internal class Sprite : Object
+    public class Sprite : Object
     {
         internal Image img;
         internal Size size;
@@ -21,8 +18,5 @@ namespace DREAMS
             image = new Bitmap(imagePath);
             img = image;
         }
-
-        
-
     }
 }

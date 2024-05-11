@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -13,11 +14,11 @@ namespace AdventureEngine
     /// Методы: Добавить спрайт, Поменять спрайт, Удалить спрайт, 
     ///         Добавить все спрайты (Обновить графику), Удалить все спрайты (Очистить поле).
     /// </summary>
-    internal static class GraphicsManager
+    public static class GraphicsManager
     {
         static double scalling_coef; //коэффициент масштабирования
         static List<Sprite> sprites = new List<Sprite>();
-        static Graphics g;
+        //static Graphics g;
 
         /// <summary>
         /// Добавляет sprite в список. Отображает sprite по координатам x и y.
@@ -25,28 +26,27 @@ namespace AdventureEngine
         /// <param name="sprite"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        static void AddSprite(Sprite sprite, int x, int y)
+        public static void AddSprite(Sprite sprite, int x, int y)
         {
             sprites.Add(sprite);
-            g.DrawImage(sprite.img, x, y);
+            //g.DrawImage(sprite.img, x, y);
         }
         static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {
             sprites[sprites.IndexOf(sprite1)] = sprite2;
             sprites[sprites.IndexOf(sprite2)] = sprite1;
-
         }
         static void DelSprite(Sprite sprite)
         {
-            //sprites.Remove(sprites[sprites.IndexOf(sprite)]);
             sprites.Remove(sprite);
-            DrawAll(g);
+            //DrawAll(g);
         }
         static void DelAll()
         {
-            g.Clear(Color.Black);
+            sprites.RemoveRange(0, sprites.Count());
+            //g.Clear(Color.Black);
         }
-        internal static void DrawAll(Graphics g)
+        public static void UpdateGraphics(Graphics g)
         {
             g.Clear(Color.Black);
             foreach (var sprite in sprites)

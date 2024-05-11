@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DREAMS
+namespace AdventureEngine
 {
-    internal class Item : Object
+    internal class Actor : Object
     {
     }
 }

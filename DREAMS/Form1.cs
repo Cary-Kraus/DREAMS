@@ -17,8 +17,12 @@ namespace DREAMS
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             InitializeComponent();
-            //GraphicsManager.AddSprite(new Sprite("1.png"), e.Graphics);
-            GraphicsManager.DrawAll(e.Graphics);
+            Sprite sprite1 = new Sprite(@"Sprites\1.png");
+            Sprite sprite2 = new Sprite(@"Sprites\2.png");
+            Sprite sprite3 = new Sprite(@"Sprites\3.png");
+
+            GraphicsManager.AddSprite(sprite1, 10, 50);
+            GraphicsManager.UpdateGraphics(e.Graphics);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -27,13 +31,7 @@ namespace DREAMS
         public Form1()
         {
             InitializeComponent();
-            Sprite sprite1 = new Sprite(@"Sprites\1.png", 10, 10);
-            Sprite sprite2 = new Sprite(@"Sprites\2.png", 50, 70);
-            Sprite sprite3 = new Sprite(@"Sprites\3.png", 100, 150);
-
-            //Sprite sprite1 = new Sprite("1.png", 10, 10);
-            //Sprite sprite2 = new Sprite("2.png", 50, 70);
-            //Sprite sprite3 = new Sprite("3.png", 100, 150);
+            
         }
     }
 }
