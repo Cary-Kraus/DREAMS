@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace DREAMS
 {
-    public class MyGame
+    public class MyGame : AdventureGame
     {
 
     }
