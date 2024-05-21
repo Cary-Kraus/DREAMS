@@ -38,9 +38,9 @@ namespace DREAMS
             foreach (Object o in objects)
                 o.Update();
         }
-        private static void DelObject()
+        public void DelObject(Object o)
         {
-
+            objects.Remove(o);
         }
         private static void StartScript()
         {

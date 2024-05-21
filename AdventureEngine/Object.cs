@@ -20,12 +20,12 @@ namespace DREAMS
         {
             sprite = s;
         }
-        public void Update()
+        public virtual void Update()
         {
-            x += speed_x;
-            y += speed_y;
-            sprite.x = x;
-            sprite.y = y;
+            //x += speed_x;
+            //y += speed_y;
+            //sprite.x = x;
+            //sprite.y = y;
         }
     }
 }
