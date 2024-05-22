@@ -20,6 +20,10 @@ namespace DREAMS
         {
             sprite = s;
         }
+        public Object(Sprite s, Line line)
+        {
+            sprite = s;
+        }
         public virtual void Update()
         {
             //x += speed_x;
