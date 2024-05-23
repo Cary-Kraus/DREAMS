@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DREAMS.Properties
+namespace AdventureEngine.Properties
 {
 
 
