@@ -5,11 +5,10 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DREAMS", "DREAMS\DREAMS.csproj", "{1B3094E8-84F4-432D-83A8-E9D65FCC54D0}"
 EndProject
-<<<<<<< Updated upstream
-=======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureEngine", "AdventureEngine\AdventureEngine.csproj", "{304EE821-2B9D-4F24-8BFB-30E33C1E3AE7}"
 EndProject
->>>>>>> Stashed changes
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{CED8AF5A-0F91-4FE6-AA2B-B5C7742D77F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,13 +19,14 @@ Global
 		{1B3094E8-84F4-432D-83A8-E9D65FCC54D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B3094E8-84F4-432D-83A8-E9D65FCC54D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B3094E8-84F4-432D-83A8-E9D65FCC54D0}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< Updated upstream
-=======
 		{304EE821-2B9D-4F24-8BFB-30E33C1E3AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{304EE821-2B9D-4F24-8BFB-30E33C1E3AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{304EE821-2B9D-4F24-8BFB-30E33C1E3AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{304EE821-2B9D-4F24-8BFB-30E33C1E3AE7}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> Stashed changes
+		{CED8AF5A-0F91-4FE6-AA2B-B5C7742D77F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED8AF5A-0F91-4FE6-AA2B-B5C7742D77F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED8AF5A-0F91-4FE6-AA2B-B5C7742D77F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED8AF5A-0F91-4FE6-AA2B-B5C7742D77F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

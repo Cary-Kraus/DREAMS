@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace DREAMS
 {
     public class Room : Object
-    { 
+    {
         Sprite sprite;
         Line line;
         public Room(Sprite sprite, Line line) : base(sprite, line)
         {
-            this.sprite = sprite;
             this.line = line;
+            this.sprite = sprite;
         }
     }
 }

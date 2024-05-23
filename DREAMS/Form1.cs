@@ -26,13 +26,13 @@ namespace DREAMS
             Sprite background = new Sprite(@"Sprites\фон.png");
             Sprite sprite2 = new Sprite(@"Sprites\2.png");
             Sprite sprite3 = new Sprite(@"Sprites\3.png");
-            room = new Room(background, new Line(1,3,50));
+            room = new Room(background, new Line(0, 0, 50));
             Object o2 = new Object(sprite2);
             act = new Actor(sprite3);
             act.speed_x = 2;
             act.speed_y = 1;
             //game.PlaceObject(o1, 10, 10);
-            game.PlaceObject(room, 150, 10);
+            game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 100, 100);
         }
         public Form1()
