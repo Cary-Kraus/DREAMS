@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdventureEngine;
 
@@ -16,6 +9,10 @@ namespace DREAMS
         MyGame game;
         Actor act;
         Room room;
+
+        
+
+        
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             GraphicsManager.UpdateGraphics(e.Graphics);
@@ -34,6 +31,7 @@ namespace DREAMS
             //game.PlaceObject(o1, 10, 10);
             game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 100, 100);
+            
         }
         public Form1()
         {
@@ -56,6 +54,14 @@ namespace DREAMS
                 act.MoveLeft();
             if (e.KeyData == Keys.D)
                 act.MoveRight();
+        }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+            //передаем координаты курсора в Actor
+            //Actor.cursorX = Cursor.Position.X;
+            //Actor.cursorY = Cursor.Position.Y;
+            Actor.CalcDistnc(Cursor.Position.X, Cursor.Position.Y);
         }
     }
 }

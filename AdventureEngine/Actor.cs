@@ -13,6 +13,9 @@ namespace DREAMS
         const int MAX_SPEED = 5;
         public static int MaxX;
         public static int MaxY;
+
+        public static int cursorX;
+        public static int cursorY;
         //protected int speed_x, speed_y;
 
         public Actor(Sprite s) : base(s)
@@ -25,6 +28,17 @@ namespace DREAMS
             //y += speed_y;
             //sprite.x = x;
             //sprite.y = y;
+        }
+        /// <summary>
+        /// Меняет вектор движения персонажа к месту клика мыши
+        /// </summary>
+        /// <param name="mouseX"></param>
+        /// <param name="mouseY"></param>
+        public static void CalcDistnc(int mouseX, int mouseY)
+        {
+            //проверка на нахождение внутри области движения
+            //вычисление расстояния от персонажа до мыши
+            //вычисление значений векторов движения к месту клика
         }
         public void MoveUp() //движение вверх
         {
