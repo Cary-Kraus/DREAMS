@@ -11,8 +11,8 @@ namespace AdventureEngine
     {
         internal Image img;
         internal Size size;
-        public int x;
-        public int y;
+        public double x;
+        public double y;
 
         public Sprite(string imagePath)
         {

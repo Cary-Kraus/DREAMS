@@ -9,7 +9,7 @@ namespace DREAMS
         MyGame game;
         Actor act;
         Room room;
-
+        Line lin;
         
 
         
@@ -23,11 +23,12 @@ namespace DREAMS
             Sprite background = new Sprite(@"Sprites\фон.png");
             Sprite sprite2 = new Sprite(@"Sprites\2.png");
             Sprite sprite3 = new Sprite(@"Sprites\3.png");
-            room = new Room(background, new Line(0, 0, 50));
+            lin = new Line(0, 0, 50);
+            room = new Room(background, lin);
             Object o2 = new Object(sprite2);
             act = new Actor(sprite3);
-            act.speed_x = 2;
-            act.speed_y = 1;
+            //act.speed_x = 2;
+            //act.speed_y = 1;
             //game.PlaceObject(o1, 10, 10);
             game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 100, 100);
@@ -42,6 +43,7 @@ namespace DREAMS
         {
             game.Update();
             Refresh();
+            Console.WriteLine($"{act.x} {act.y}");
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //движение по клавишам WASD
@@ -58,10 +60,8 @@ namespace DREAMS
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            //передаем координаты курсора в Actor
-            //Actor.cursorX = Cursor.Position.X;
-            //Actor.cursorY = Cursor.Position.Y;
-            Actor.CalcDistnc(Cursor.Position.X, Cursor.Position.Y);
+            Console.WriteLine($"Click {Cursor.Position.X}, {Cursor.Position.Y}");
+            act.CalcDistnc(Cursor.Position.X, Cursor.Position.Y);
         }
     }
 }

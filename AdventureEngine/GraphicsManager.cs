@@ -49,7 +49,7 @@ namespace AdventureEngine
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
-                g.DrawImage(sprite.img, sprite.x, sprite.y);
+                g.DrawImage(sprite.img, (float)sprite.x, (float)sprite.y);
             }
         }
     }

@@ -5,10 +5,9 @@ namespace DREAMS
     public class Object
     {
         public Sprite sprite;
-        public int x;
-        public int y;
-        public int speed_x;
-        public int speed_y;
+        public double x;
+        public double y;
+        protected float speed_x, speed_y;
 
         public Object(Sprite s)
         {
