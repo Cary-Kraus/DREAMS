@@ -30,5 +30,10 @@ namespace AdventureEngine
                 else return false;
             else return false;
         }
+
+        public bool IsOnTarget(Line lin)
+        {
+            return true;
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace AdventureEngine
 {
     public class Sprite : Object
     {
-        internal Image img;
+        public Image img;
         internal Size size;
         public double x;
         public double y;
@@ -19,6 +19,7 @@ namespace AdventureEngine
             img = new Bitmap(imagePath);
             x = 0;
             y = 0;
+            size = new Size(1920, 1080);
         }
     }
 }

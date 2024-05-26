@@ -35,18 +35,20 @@ namespace DREAMS
         /// </summary>
         /// <param name="mouseX"></param>
         /// <param name="mouseY"></param>
-        public void CalcDistnc(int mouseX, int mouseY)
+        public void CalcDistnc(int mouseX)
         {  
             double x1 = sprite.x;
             double x2 = sprite.x + sprite.img.Width;
+            
 
             double vx = mouseX - x;
-            double vy = mouseY - y;
+            //double vy = mouseY - y;
             double dist = Math.Sqrt(vx * vx + vy * vy);
             if (dist >= 0.01)
             {
                 speed_x = (float)(vx / dist * MAX_SPEED);
-                speed_y = (float)(vy / dist * MAX_SPEED);
+                //speed_y = (float)(vy / dist * MAX_SPEED);
+                speed_y = 0;
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 using AdventureEngine;
 
 namespace DREAMS
@@ -20,6 +21,7 @@ namespace DREAMS
         private void Form1_Load(object sender, EventArgs e)
         {
             game = new MyGame();
+            
             Sprite background = new Sprite(@"Sprites\фон.png");
             Sprite sprite2 = new Sprite(@"Sprites\2.png");
             Sprite sprite3 = new Sprite(@"Sprites\3.png");
@@ -29,7 +31,6 @@ namespace DREAMS
             act = new Actor(sprite3);
             //act.speed_x = 2;
             //act.speed_y = 1;
-            //game.PlaceObject(o1, 10, 10);
             game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 100, 100);
             
