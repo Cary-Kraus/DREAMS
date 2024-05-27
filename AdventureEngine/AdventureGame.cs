@@ -17,7 +17,7 @@ namespace DREAMS
             objects = new List<Object>();
         }
 
-        private static void AddRoom()
+        private static void AddRoom(Room room)
         {
 
         }

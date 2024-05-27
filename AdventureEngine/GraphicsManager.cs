@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 
 namespace AdventureEngine
 {
@@ -49,7 +50,8 @@ namespace AdventureEngine
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
-                g.DrawImage(sprite.img, (float)sprite.x, (float)sprite.y);
+                g.InterpolationMode = InterpolationMode.Bilinear;
+                g.DrawImage(sprite.img, new Rectangle((int)sprite.x, (int)sprite.y, sprite.size.Width, sprite.size.Height));
             }
         }
     }

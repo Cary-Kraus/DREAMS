@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Drawing;
 using AdventureEngine;
+using System.Drawing.Drawing2D;
 
 namespace DREAMS
 {
@@ -22,7 +23,7 @@ namespace DREAMS
         {
             game = new MyGame();
             
-            Sprite background = new Sprite(@"Sprites\фон.png");
+            Sprite background = new Sprite(@"Sprites\фон.png", 1600, 900);
             Sprite sprite2 = new Sprite(@"Sprites\2.png");
             Sprite sprite3 = new Sprite(@"Sprites\3.png");
             lin = new Line(0, 0, 50);
@@ -32,8 +33,14 @@ namespace DREAMS
             //act.speed_x = 2;
             //act.speed_y = 1;
             game.PlaceObject(room, 0, 0);
-            game.PlaceObject(act, 100, 100);
-            
+            game.PlaceObject(act, 300, 400);
+            //PictureBox backGrPicBox = new PictureBox()
+            //{
+            //    BackgroundImage = background.img,
+            //    BackgroundImageLayout = ImageLayout.Stretch,
+            //    Size = new Size(1920, 1080)
+            //};
+            //Controls.Add(backGrPicBox);
         }
         public Form1()
         {
