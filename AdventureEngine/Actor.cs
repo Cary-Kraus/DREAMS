@@ -42,12 +42,12 @@ namespace DREAMS
             
 
             double vx = mouseX - x;
-            //double vy = mouseY - y;
+            double vy = 0 - y;
             double dist = Math.Sqrt(vx * vx + vy * vy);
-            if (dist >= 0.01)
+            if (dist >= 5)
             {
                 speed_x = (float)(vx / dist * MAX_SPEED);
-                //speed_y = (float)(vy / dist * MAX_SPEED);
+                speed_y = (float)(vy / dist * MAX_SPEED);
                 speed_y = 0;
             }
             else
@@ -67,16 +67,16 @@ namespace DREAMS
         {
 
         }
-        public void MoveUp() //движение вверх
-        {
-            y--;
-            sprite.y = y;
-        }
-        public void MoveDown() //движение вниз
-        {
-            y++;
-            sprite.y = y;
-        }
+        //public void MoveUp() //движение вверх
+        //{
+        //    y--;
+        //    sprite.y = y;
+        //}
+        //public void MoveDown() //движение вниз
+        //{
+        //    y++;
+        //    sprite.y = y;
+        //}
         public void MoveLeft() //движение влево
         {
             x--;

@@ -49,10 +49,10 @@ namespace DREAMS
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //движение по клавишам WASD
         {
-            if (e.KeyData == Keys.W)
-                act.MoveUp();
-            if (e.KeyData == Keys.S)
-                act.MoveDown();
+            //if (e.KeyData == Keys.W)
+            //    act.MoveUp();
+            //if (e.KeyData == Keys.S)
+            //    act.MoveDown();
             if (e.KeyData == Keys.A)
                 act.MoveLeft();
             if (e.KeyData == Keys.D)
@@ -62,7 +62,7 @@ namespace DREAMS
         private void Form1_Click(object sender, EventArgs e)
         {
             Console.WriteLine($"Click {Cursor.Position.X}, {Cursor.Position.Y}");
-            act.CalcDistnc(Cursor.Position.X, Cursor.Position.Y);
+            act.CalcDistnc(Cursor.Position.X);
         }
     }
 }
