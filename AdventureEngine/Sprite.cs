@@ -14,12 +14,11 @@ namespace AdventureEngine
         public double x;
         public double y;
 
-        public Sprite(string imagePath)
+        public Sprite(Image image)
         {
-            img = new Bitmap(imagePath);
+            img = image;
             x = 0;
             y = 0;
-            //size = new Size(1920, 1080);
         }
         public Sprite(string imagePath, int width, int height)
         {
@@ -27,7 +26,9 @@ namespace AdventureEngine
             x = 0;
             y = 0;
             size = new Size(width, height);
-            img = new Bitmap(Image.FromFile(imagePath), size);
+            img = Image.FromFile(imagePath);
+            
+            
         }
     }
 }

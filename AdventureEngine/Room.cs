@@ -15,5 +15,9 @@ namespace DREAMS
             this.line = line;
             this.sprite = sprite;
         }
+        public void PlaceRoom()
+        {
+
+        }
     }
 }

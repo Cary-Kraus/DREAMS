@@ -81,11 +81,13 @@ namespace DREAMS
         {
             x--;
             sprite.x = x;
+            sprite.img = AdventureGame.imActorLeft0;
         }
         public void MoveRight() //движение вправо
         {
             x++;
             sprite.x = x;
+            sprite.img = AdventureGame.imActorRight0;
         }
     }
 }

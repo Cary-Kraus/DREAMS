@@ -23,24 +23,17 @@ namespace DREAMS
         {
             game = new MyGame();
             
-            Sprite background = new Sprite(@"Sprites\фон.png", 1600, 900);
-            Sprite sprite2 = new Sprite(@"Sprites\2.png");
-            Sprite sprite3 = new Sprite(@"Sprites\3.png");
+            Sprite backgroundForest = new Sprite(AdventureGame.imForest1);
+            Sprite sprite2 = new Sprite(AdventureGame.imGhost0);
+            Sprite sprite3 = new Sprite(AdventureGame.imActorLeft0);
             lin = new Line(0, 0, 50);
-            room = new Room(background, lin);
+            room = new Room(backgroundForest, lin);
             Object o2 = new Object(sprite2);
             act = new Actor(sprite3);
             //act.speed_x = 2;
             //act.speed_y = 1;
             game.PlaceObject(room, 0, 0);
-            game.PlaceObject(act, 300, 400);
-            //PictureBox backGrPicBox = new PictureBox()
-            //{
-            //    BackgroundImage = background.img,
-            //    BackgroundImageLayout = ImageLayout.Stretch,
-            //    Size = new Size(1920, 1080)
-            //};
-            //Controls.Add(backGrPicBox);
+            game.PlaceObject(act, 300, 450);
         }
         public Form1()
         {

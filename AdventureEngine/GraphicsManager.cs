@@ -50,8 +50,7 @@ namespace AdventureEngine
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
-                g.InterpolationMode = InterpolationMode.Bilinear;
-                g.DrawImage(sprite.img, new Rectangle((int)sprite.x, (int)sprite.y, sprite.size.Width, sprite.size.Height));
+                g.DrawImage(sprite.img, (float)sprite.x, (float)sprite.y);
             }
         }
     }
