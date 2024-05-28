@@ -7,7 +7,7 @@ namespace DREAMS
         public Sprite sprite;
         public double x;
         public double y;
-        protected float speed_x, speed_y;
+        //protected float speed_x, speed_y;
 
         public Object(Sprite s)
         {

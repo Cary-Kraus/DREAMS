@@ -20,15 +20,12 @@ namespace AdventureEngine
             x = 0;
             y = 0;
         }
-        public Sprite(string imagePath, int width, int height)
-        {
-            
-            x = 0;
-            y = 0;
-            size = new Size(width, height);
-            img = Image.FromFile(imagePath);
-            
-            
-        }
+        //public Sprite(string imagePath, int width, int height)
+        //{            
+        //    x = 0;
+        //    y = 0;
+        //    size = new Size(width, height);
+        //    img = Image.FromFile(imagePath);                        
+        //}
     }
 }

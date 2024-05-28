@@ -26,7 +26,7 @@ namespace DREAMS
             Sprite backgroundForest = new Sprite(AdventureGame.imForest1);
             Sprite sprite2 = new Sprite(AdventureGame.imGhost0);
             Sprite sprite3 = new Sprite(AdventureGame.imActorLeft0);
-            lin = new Line(0, 0, 50);
+            lin = new Line(0, 0, 50, 50);
             room = new Room(backgroundForest, lin);
             Object o2 = new Object(sprite2);
             act = new Actor(sprite3);
@@ -62,7 +62,7 @@ namespace DREAMS
         private void Form1_Click(object sender, EventArgs e)
         {
             Console.WriteLine($"Click {Cursor.Position.X}, {Cursor.Position.Y}");
-            act.CalcDistnc(Cursor.Position.X);
+            //act.CalcDistnc(Cursor.Position.X);
         }
     }
 }

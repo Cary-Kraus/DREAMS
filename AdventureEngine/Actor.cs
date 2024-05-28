@@ -12,8 +12,9 @@ namespace DREAMS
     {
         const int MAX_SPEED = 5;
         public static int MaxX;
-        public static int MaxY;
-        //protected float speed_x, speed_y;
+        //public static int MaxY;
+        public float speed_x;
+        public float speed_y;
 
         //public static int cursorX;
         //public static int cursorY;
@@ -79,13 +80,15 @@ namespace DREAMS
         //}
         public void MoveLeft() //движение влево
         {
-            x--;
+            speed_x = 2;
+            x-=speed_x;
             sprite.x = x;
             sprite.img = AdventureGame.imActorLeft0;
         }
         public void MoveRight() //движение вправо
         {
-            x++;
+            speed_x = 2;
+            x +=speed_x;
             sprite.x = x;
             sprite.img = AdventureGame.imActorRight0;
         }
