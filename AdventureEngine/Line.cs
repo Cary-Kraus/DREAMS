@@ -23,14 +23,6 @@ namespace AdventureEngine
 
         public bool IsInside(Line lin)
         {
-            //double linLenth = Math.Sqrt(Math.Pow(lin.x2 - lin.x1, 2.0) + 1); //длина линии lin
-            //double thisLenth = Math.Sqrt(Math.Pow(x2 - x1, 2.0) + 1); //длина текущей линии
-
-            //if (linLenth - thisLenth >= 0 && lin.y == y) //нужна ли проверка длины?????????
-            //if (x1 - lin.x1 >= 0 && x2 - lin.x2 <= 0)
-            //return true;
-            //else return false;
-            //else return false;
 
             if (x1 == 0 && x2 == 0 && y1 - lin.y1 >= 0 && y2 - lin.y2 <= 0)
                 return true;

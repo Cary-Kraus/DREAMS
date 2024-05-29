@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using AdventureEngine;
 using System.Drawing.Drawing2D;
+using System.Collections.Generic;
 
 namespace DREAMS
 {
@@ -22,18 +23,27 @@ namespace DREAMS
         private void Form1_Load(object sender, EventArgs e)
         {
             game = new MyGame();
-            
-            Sprite backgroundForest = new Sprite(AdventureGame.imForest1);
-            Sprite sprite2 = new Sprite(AdventureGame.imGhost0);
-            Sprite sprite3 = new Sprite(AdventureGame.imActorLeft0);
+
+            game.rooms[1].
+            Sprite backgroundForest = new Sprite(MyGame.imForest1);
+            Sprite ghost = new Sprite(MyGame.imGhost0);
+            Sprite actor = new Sprite(MyGame.imActorLeft0);
+            Sprite angel = new Sprite(MyGame.imWeepingAngel1);
             lin = new Line(0, 0, 50, 50);
             room = new Room(backgroundForest, lin);
-            Object o2 = new Object(sprite2);
-            act = new Actor(sprite3);
+            Object ghostObj = new Object(ghost);
+            Object angelObj = new Object(angel);
+            act = new Actor(actor);
+            act.SetStates(new Dictionary<string, Sprite>
+            { 
+                {"Stand", actor} 
+            });
             //act.speed_x = 2;
             //act.speed_y = 1;
             game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 300, 450);
+            game.PlaceObject(ghostObj, 200, 450);
+            game.PlaceObject(angelObj, 600, 200);
         }
         public Form1()
         {
@@ -42,27 +52,22 @@ namespace DREAMS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            game.Update();
+            //game.Update();
+            room.Update();
             Refresh();
-            Console.WriteLine($"{act.x} {act.y}");
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //движение по клавишам WASD
         {
-            //if (e.KeyData == Keys.W)
-            //    act.MoveUp();
-            //if (e.KeyData == Keys.S)
-            //    act.MoveDown();
-            if (e.KeyData == Keys.A)
+            if (e.KeyData == Keys.A && e.KeyData == Keys.Left)
                 act.MoveLeft();
-            if (e.KeyData == Keys.D)
+            if (e.KeyData == Keys.D && e.KeyData == Keys.Right)
                 act.MoveRight();
         }
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine($"Click {Cursor.Position.X}, {Cursor.Position.Y}");
-            //act.CalcDistnc(Cursor.Position.X);
+
         }
     }
 }

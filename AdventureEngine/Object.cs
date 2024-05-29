@@ -1,15 +1,16 @@
 ﻿using AdventureEngine;
+using System.Collections.Generic;
 
 namespace DREAMS
 {
     public class Object
     {
         public Sprite sprite;
-        public double x;
-        public double y;
-        //protected float speed_x, speed_y;
+        public int x;
+        public int y;
+        public Dictionary<string, Sprite> states;
 
-        public Object(Sprite s)
+        public Object(Sprite s = null)
         {
             sprite = s;
         }
@@ -19,10 +20,16 @@ namespace DREAMS
         }
         public virtual void Update()
         {
-            //x += speed_x;
-            //y += speed_y;
-            //sprite.x = x;
-            //sprite.y = y;
+        }
+
+        public void SetStates(Dictionary<string, Sprite> states)
+        {
+            this.states = states;
+        }
+        public void Stop()
+        {
+            x = 0;
+            y = 0;
         }
     }
 }

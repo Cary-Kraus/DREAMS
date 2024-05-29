@@ -11,8 +11,8 @@ namespace AdventureEngine
     {
         public Image img;
         public Size size;
-        public double x;
-        public double y;
+        public int x;
+        public int y;
 
         public Sprite(Image image)
         {

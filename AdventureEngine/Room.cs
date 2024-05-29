@@ -10,6 +10,7 @@ namespace DREAMS
     public class Room : Object
     {
         Line line;
+        List<Object> objects;
         public Room(Sprite sprite, Line line) : base(sprite, line)
         {
             this.line = line;
@@ -17,6 +18,21 @@ namespace DREAMS
         }
         public void PlaceRoom()
         {
+
+        }
+        public override void Update() //перенести в комнату
+        {
+            foreach (Object o in objects)
+            {
+                if (o is Actor)
+                {
+                    Actor a = (Actor)o;
+                    if (a.selfLine.IsInside())
+                        o.Update(); //обновление движения
+                    else
+                        o.Stop();//останавливаем/обнуляем скорость 
+                }
+            }
 
         }
     }

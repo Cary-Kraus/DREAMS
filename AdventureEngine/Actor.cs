@@ -10,19 +10,16 @@ namespace DREAMS
 {
     public class Actor : Object
     {
-        const int MAX_SPEED = 5;
+        const int SPEED_X = 5;
         public static int MaxX;
-        //public static int MaxY;
-        public float speed_x;
-        public float speed_y;
-
-        //public static int cursorX;
-        //public static int cursorY;
-        //protected int speed_x, speed_y;
+        public int speed_x;
+        public int speed_y;
+        public Line selfLine;
 
         public Actor(Sprite s) : base(s)
         {
             sprite = s;
+            selfLine = new Line(s.x, s.x, s.y, s.y - s.img.Height);
         }
         public override void Update() //обновление координат объекта. Если раскомментировать - будет двигаться
         {
@@ -36,61 +33,29 @@ namespace DREAMS
         /// </summary>
         /// <param name="mouseX"></param>
         /// <param name="mouseY"></param>
-        public void CalcDistnc(int mouseX)
-        {  
-            double x1 = sprite.x;
-            double x2 = sprite.x + sprite.img.Width;
-            
-
-            double vx = mouseX - x;
-            double vy = 0 - y;
-            double dist = Math.Sqrt(vx * vx + vy * vy);
-            if (dist >= 5)
-            {
-                speed_x = (float)(vx / dist * MAX_SPEED);
-                speed_y = (float)(vy / dist * MAX_SPEED);
-                speed_y = 0;
-            }
-            else
-            {
-                speed_x = 0;
-                speed_y = 0;
-            }
-
-            //проверка на нахождение внутри области движения
-            //вычисление расстояния от персонажа до мыши
-            //вычисление значений векторов движения к месту клика
-        }
+        
+        
         /// <summary>
         /// Проверяет, достиг ли гг нужной точки. Если да, то останавливает.
         /// </summary>
-        public void StandHere()
-        {
 
-        }
-        //public void MoveUp() //движение вверх
-        //{
-        //    y--;
-        //    sprite.y = y;
-        //}
-        //public void MoveDown() //движение вниз
-        //{
-        //    y++;
-        //    sprite.y = y;
-        //}
         public void MoveLeft() //движение влево
         {
-            speed_x = 2;
-            x-=speed_x;
-            sprite.x = x;
-            sprite.img = AdventureGame.imActorLeft0;
+            x -= SPEED_X;
+            SetStates(new Dictionary<string, Sprite>
+            {
+                {"GoLeft", sprite.img = imActorLeft0}
+            });
+            //sprite.img = MyGame.imActorLeft0;
         }
         public void MoveRight() //движение вправо
         {
-            speed_x = 2;
-            x +=speed_x;
-            sprite.x = x;
-            sprite.img = AdventureGame.imActorRight0;
+            x += SPEED_X;
+            SetStates(new Dictionary<string, Sprite>
+            {
+                {"GoRight", sprite.img = imActorLeft0}
+            });
+            //sprite.img = MyGame.imActorRight0;
         }
     }
 }
