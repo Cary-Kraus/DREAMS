@@ -26,10 +26,6 @@ namespace DREAMS
         {
             this.states = states;
         }
-        public void Stop()
-        {
-            x = 0;
-            y = 0;
-        }
+        
     }
 }

@@ -57,5 +57,10 @@ namespace DREAMS
             });
             //sprite.img = MyGame.imActorRight0;
         }
+        public void Stop()
+        {
+            x = 0;
+            y = 0;
+        }
     }
 }

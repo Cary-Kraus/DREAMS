@@ -24,22 +24,6 @@ namespace DREAMS
         {
             game = new MyGame();
 
-            game.rooms[1].
-            Sprite backgroundForest = new Sprite(MyGame.imForest1);
-            Sprite ghost = new Sprite(MyGame.imGhost0);
-            Sprite actor = new Sprite(MyGame.imActorLeft0);
-            Sprite angel = new Sprite(MyGame.imWeepingAngel1);
-            lin = new Line(0, 0, 50, 50);
-            room = new Room(backgroundForest, lin);
-            Object ghostObj = new Object(ghost);
-            Object angelObj = new Object(angel);
-            act = new Actor(actor);
-            act.SetStates(new Dictionary<string, Sprite>
-            { 
-                {"Stand", actor} 
-            });
-            //act.speed_x = 2;
-            //act.speed_y = 1;
             game.PlaceObject(room, 0, 0);
             game.PlaceObject(act, 300, 450);
             game.PlaceObject(ghostObj, 200, 450);
