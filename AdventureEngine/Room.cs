@@ -10,7 +10,7 @@ namespace DREAMS
     public class Room : Object
     {
         Line line;
-        List<Object> objects;
+        public List<Object> objects;
         public Room(Sprite sprite, Line line) : base(sprite, line)
         {
             this.line = line;
@@ -20,7 +20,7 @@ namespace DREAMS
         {
 
         }
-        public override void Update() //перенести в комнату
+        public override void Update()
         {
             foreach (Object o in objects)
             {

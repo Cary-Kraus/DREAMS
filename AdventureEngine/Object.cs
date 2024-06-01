@@ -10,7 +10,7 @@ namespace DREAMS
         public int y;
         public Dictionary<string, Sprite> states;
 
-        public Object(Sprite s = null)
+        public Object(Sprite s)
         {
             sprite = s;
         }
@@ -26,6 +26,9 @@ namespace DREAMS
         {
             this.states = states;
         }
-        
+        public virtual void Stop()
+        {
+
+        }
     }
 }

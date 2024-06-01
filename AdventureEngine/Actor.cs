@@ -34,11 +34,6 @@ namespace DREAMS
         /// <param name="mouseX"></param>
         /// <param name="mouseY"></param>
         
-        
-        /// <summary>
-        /// Проверяет, достиг ли гг нужной точки. Если да, то останавливает.
-        /// </summary>
-
         public void MoveLeft() //движение влево
         {
             x -= SPEED_X;
@@ -46,7 +41,6 @@ namespace DREAMS
             {
                 {"GoLeft", sprite.img = imActorLeft0}
             });
-            //sprite.img = MyGame.imActorLeft0;
         }
         public void MoveRight() //движение вправо
         {
@@ -55,9 +49,8 @@ namespace DREAMS
             {
                 {"GoRight", sprite.img = imActorLeft0}
             });
-            //sprite.img = MyGame.imActorRight0;
         }
-        public void Stop()
+        public override void Stop()
         {
             x = 0;
             y = 0;

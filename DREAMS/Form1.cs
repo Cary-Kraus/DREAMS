@@ -10,12 +10,6 @@ namespace DREAMS
     public partial class Form1 : Form
     {
         MyGame game;
-        Actor act;
-        Room room;
-        Line lin;
-        
-
-        
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             GraphicsManager.UpdateGraphics(e.Graphics);
@@ -24,10 +18,10 @@ namespace DREAMS
         {
             game = new MyGame();
 
-            game.PlaceObject(room, 0, 0);
-            game.PlaceObject(act, 300, 450);
-            game.PlaceObject(ghostObj, 200, 450);
-            game.PlaceObject(angelObj, 600, 200);
+            //game.PlaceObject(room, 0, 0);
+            //game.PlaceObject(act, 300, 450);
+            //game.PlaceObject(ghostObj, 200, 450);
+            //game.PlaceObject(angelObj, 600, 200);
         }
         public Form1()
         {
@@ -37,7 +31,7 @@ namespace DREAMS
         private void timer1_Tick(object sender, EventArgs e)
         {
             //game.Update();
-            room.Update();
+            //room.Update();
             Refresh();
         }
 

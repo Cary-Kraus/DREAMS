@@ -13,6 +13,8 @@ namespace DREAMS
     public class AdventureGame
     {
         List<Object> objects;
+        public Dictionary<string, Room> rooms;            
+        public Room CurrentRoom;
 
 
         public AdventureGame()
@@ -20,11 +22,16 @@ namespace DREAMS
             objects = new List<Object>();
         }
 
-        private static void AddRoom(Room room)
+        private void AddRoom(Room room)
         {
-
+            
         }
-        private static void GoToRoom()
+        public void SetRoom(Room room)
+        {
+            CurrentRoom = room;
+            GraphicsManager.AddSprite(room.sprite,0,0);
+        }
+        private static void GoToRoom(Room room)
         {
 
         }
@@ -46,6 +53,10 @@ namespace DREAMS
 
         }
         private static void StopScript()
+        {
+
+        }
+        public static void Update()
         {
 
         }
