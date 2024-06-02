@@ -1,10 +1,5 @@
 ﻿using AdventureEngine;
-using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DREAMS
 {
@@ -16,24 +11,27 @@ namespace DREAMS
         public int speed_y;
         public Line selfLine;
         
-
         public Actor(Dictionary<string, Sprite> states)
         {
             //sprite = s;
             //selfLine = new Line(s.x, s.x, s.y, s.y - s.img.Height);
             this.states = states;
         }
+        public Actor()
+        {
 
-        public override void Update() //обновление координат объекта.
+        }
+
+        public override void Update() //обновление координат объекта
         {
             x += speed_x;
             y += speed_y;
             sprite.x = x;
             sprite.y = y;
             if (sprite.x < 0)
-                SetStates("goLeft");        //????
+                SetStates("goLeft");
             else if (sprite.x > 0)
-                MoveRight();                //????
+                SetStates("goRight");
         }
         
         public void MoveLeft() //движение влево

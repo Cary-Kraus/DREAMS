@@ -10,9 +10,8 @@ namespace DREAMS
     internal class Girl : Actor
     {
         
-        public Girl(Sprite s) : base(s)
-        {
-            
+        public Girl()
+        {            
 
         }
     }

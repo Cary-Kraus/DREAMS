@@ -8,25 +8,35 @@ namespace DREAMS
         public Sprite sprite;
         public int x;
         public int y;
-        public Dictionary<string, Sprite> states;
+        public Dictionary<string, Sprite> states = new Dictionary<string, Sprite>();
         public string currentState;
 
 
         public Object(Sprite s)
         {
             sprite = s;
+            currentState = "default";
         }
         public Object(Sprite s, Line line)
         {
             sprite = s;
         }
+        public Object()
+        {
+            
+        }
         public virtual void Update()
         {
         }
 
-        public void SetStates(Dictionary<string, Sprite> states)
+        public void SetStates(string state)
         {
-            this.states = states;
+            if (currentState != state)
+            {
+                currentState = state;
+                if (states.ContainsKey(currentState))
+                    sprite = states[currentState];
+            }            
         }
         public virtual void Stop()
         {

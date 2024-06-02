@@ -1,16 +1,12 @@
 ﻿using AdventureEngine;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DREAMS
 {
     public class Room : Object
     {
         Line line;
-        public List<Object> objects;
+        public List<Object> objects = new List<Object>();
         public Room(Sprite sprite, Line line) : base(sprite, line)
         {
             this.line = line;
@@ -27,8 +23,11 @@ namespace DREAMS
                 if (o is Actor)
                 {
                     Actor a = (Actor)o;
-                    if (a.selfLine.IsInside())
+                    if (a.selfLine.IsInside(new Line(100, 100, 350, 450)))
+                    {
+                        a.x--;
                         o.Update(); //обновление движения
+                    }                        
                     else
                         o.Stop();//останавливаем/обнуляем скорость 
                 }
