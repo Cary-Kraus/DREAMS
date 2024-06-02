@@ -9,6 +9,8 @@ namespace DREAMS
         public int x;
         public int y;
         public Dictionary<string, Sprite> states;
+        public string currentState;
+
 
         public Object(Sprite s)
         {

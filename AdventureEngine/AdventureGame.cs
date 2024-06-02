@@ -12,14 +12,14 @@ namespace DREAMS
     
     public class AdventureGame
     {
-        List<Object> objects;
         public Dictionary<string, Room> rooms;            
-        public Room CurrentRoom;
+        public static Room CurrentRoom;
+        //public List<Object> objects;
 
 
         public AdventureGame()
         {
-            objects = new List<Object>();
+            //комнаты
         }
 
         private void AddRoom(Room room)
@@ -39,14 +39,14 @@ namespace DREAMS
         {
             o.x = x;
             o.y = y;
-            objects.Add(o);
+            CurrentRoom.objects.Add(o);
             GraphicsManager.AddSprite(o.sprite, x, y);
         }
 
         
         public void DelObject(Object o)
         {
-            objects.Remove(o);
+            CurrentRoom.objects.Remove(o);
         }
         private static void StartScript()
         {
@@ -58,7 +58,8 @@ namespace DREAMS
         }
         public static void Update()
         {
-
+            //CurrentRoom.sprite
+            //CurrentRoom.objects
         }
     }
 }

@@ -35,5 +35,12 @@ namespace DREAMS
             }
 
         }
+        public void PlaceObject(Object o, int x, int y)
+        {
+            o.x = x;
+            o.y = y;
+            objects.Add(o);
+            GraphicsManager.AddSprite(o.sprite, x, y);
+        }
     }
 }

@@ -38,9 +38,9 @@ namespace DREAMS
         private void Form1_KeyDown(object sender, KeyEventArgs e) //движение по клавишам WASD
         {
             if (e.KeyData == Keys.A && e.KeyData == Keys.Left)
-                act.MoveLeft();
+                game.act.MoveLeft();
             if (e.KeyData == Keys.D && e.KeyData == Keys.Right)
-                act.MoveRight();
+                game.act.MoveRight();
         }
 
         private void Form1_Click(object sender, EventArgs e)
