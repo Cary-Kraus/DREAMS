@@ -6,11 +6,12 @@ namespace DREAMS
     public class Room : Object
     {
         Line line;
-        public List<Object> objects = new List<Object>();
-        public Room(Sprite sprite, Line line) : base(sprite, line)
+        public List<Object> objects;
+        public Room(Sprite sprite, Line line) : base(sprite)
         {
             this.line = line;
             this.sprite = sprite;
+            objects = new List<Object>();
         }
         public void PlaceRoom()
         {

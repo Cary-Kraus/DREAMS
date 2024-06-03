@@ -38,7 +38,8 @@ namespace DREAMS
         {
             Room roomForest1 = new Room(sForest1, new Line(0, 0, 0, 0));            
             Room roomForest2 = new Room(sForest1, new Line(0, 0, 0, 0));            
-            Room roomForest3 = new Room(sForest1, new Line(0, 0, 0, 0));  
+            Room roomForest3 = new Room(sForest1, new Line(0, 0, 0, 0));
+            CurrentRoom = roomForest1;
             rooms = new Dictionary<string, Room>
             {
                 { "ForestStart", roomForest1},

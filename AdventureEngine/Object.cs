@@ -17,10 +17,6 @@ namespace DREAMS
             sprite = s;
             currentState = "default";
         }
-        public Object(Sprite s, Line line)
-        {
-            sprite = s;
-        }
         public Object()
         {
             

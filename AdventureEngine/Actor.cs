@@ -12,10 +12,10 @@ namespace DREAMS
         public Line selfLine;
         
         public Actor(Dictionary<string, Sprite> states)
-        {
-            //sprite = s;
-            //selfLine = new Line(s.x, s.x, s.y, s.y - s.img.Height);
+        {                       
             this.states = states;
+            sprite = states["Left"];
+            selfLine = new Line(sprite.x, sprite.x, sprite.y, sprite.y - sprite.img.Height);
         }
         public Actor()
         {
