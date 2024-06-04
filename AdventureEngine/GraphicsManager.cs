@@ -33,9 +33,11 @@ namespace AdventureEngine
         }
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {
-            //запоминаем координаты текщего спрайта и присваиваем новому
+            if (!sprites.Contains(sprite1))
+                Console.WriteLine($"{sprite1.name} не найден в sprites");
+            if (!sprites.Contains(sprite2))
+                Console.WriteLine($"{sprite2.name} не найден в sprites");
             sprites[sprites.IndexOf(sprite1)] = sprite2;
-            sprites[sprites.IndexOf(sprite2)] = sprite1;
 
             Console.WriteLine($"Индекс спрайта {sprite1.name} = {sprites.IndexOf(sprite1)}");
             Console.WriteLine($"Индекс спрайта {sprite2.name} = {sprites.IndexOf(sprite2)}");            

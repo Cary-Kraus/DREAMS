@@ -22,6 +22,16 @@ namespace AdventureEngine
             y = 0;
             this.name = name;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Sprite sprite &&
+                   EqualityComparer<Image>.Default.Equals(img, sprite.img) &&
+                   EqualityComparer<Size>.Default.Equals(size, sprite.size) &&
+                   x == sprite.x &&
+                   y == sprite.y &&
+                   name == sprite.name;
+        }
         //public Sprite(string imagePath, int width, int height)
         //{            
         //    x = 0;
