@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Security.Policy;
+using DREAMS;
 
 namespace AdventureEngine
 {
@@ -14,7 +15,6 @@ namespace AdventureEngine
     /// </summary>
     public static class GraphicsManager
     {
-        static double scalling_coef; //коэффициент масштабирования
         static List<Sprite> sprites = new List<Sprite>();
         //static Graphics g;
 
@@ -29,18 +29,20 @@ namespace AdventureEngine
             sprite.x = x;
             sprite.y = y;
             sprites.Add(sprite);
-            //Console.WriteLine($"Спрайт {sprite} добавлен в список спрайтов");
+            //Console.WriteLine($"Спрайт {sprite.name} добавлен в список спрайтов");
         }
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {
-            if (!sprites.Contains(sprite1))
-                Console.WriteLine($"{sprite1.name} не найден в sprites");
-            if (!sprites.Contains(sprite2))
-                Console.WriteLine($"{sprite2.name} не найден в sprites");
-            sprites[sprites.IndexOf(sprite1)] = sprite2;
 
-            Console.WriteLine($"Индекс спрайта {sprite1.name} = {sprites.IndexOf(sprite1)}");
-            Console.WriteLine($"Индекс спрайта {sprite2.name} = {sprites.IndexOf(sprite2)}");            
+            //сохраняем кординаты sprite1 и присваиваем sprite2            
+
+            sprites[sprites.IndexOf(sprite1)] = sprite2;
+            sprites[sprites.IndexOf(sprite2)] = sprite1;
+            sprite2.x = sprite1.x;
+            sprite2.y = sprite1.y;
+            Console.WriteLine($"Координаты {sprite2.name}: {sprite2.x},{sprite2.y} ");
+            Console.WriteLine($"Координаты {sprite1.name}: {sprite1.x},{sprite1.y} ");
+                      
         }
         static void DelSprite(Sprite sprite)
         {
@@ -55,7 +57,7 @@ namespace AdventureEngine
             //Console.WriteLine("Обновление графики");
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
-            {
+            {                
                 g.DrawImage(sprite.img, sprite.x, sprite.y);
             }
         }

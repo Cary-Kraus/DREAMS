@@ -22,10 +22,12 @@ namespace DREAMS
         public static Sprite sActorRight0 = new Sprite(Image.FromFile(@"Sprites\actorright0.png"), "девочкаСтоитНаправо");
         //public static Sprite sActorLeft1 = new Sprite(Image.FromFile(@"Sprites\actorleft1.gif"));
         //public static Sprite sActorRight1 = new Sprite(Image.FromFile(@"Sprites\actorright1.gif"));
-        public static Sprite sActorLeft1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак0");
-        public static Sprite sActorRight1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак0");
+        public static Sprite sActorLeft1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак");
+        public static Sprite sActorRight1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак");
         public static Sprite sAngel1 = new Sprite(Image.FromFile(@"Sprites\angel1.png"), "ангел1");
         public static Sprite sCrown = new Sprite(Image.FromFile(@"Sprites\crown.png"), "корона1");         
+
+        //GraphicsManager.AddSprite(sActorLeft1)
 
         Object ghostObj = new Object(sGhost0);
         Object angelObj = new Object(sAngel1);
@@ -51,9 +53,10 @@ namespace DREAMS
                 { "ForestGraveyard", roomForest2},
                 { "ForestFox", roomForest3}
             };
+            GraphicsManager.AddSprite(sActorLeft1, 0, 0);
+            GraphicsManager.AddSprite(sActorRight1, 0, 0);
             SetRoom(roomForest1);
-            //Console.WriteLine($"Объекты {ghostObj},{crownObj},{act} добавлены в список оъектов комнаты {roomForest1}");
-            PlaceObject(ghostObj, 200, 450);
+            //PlaceObject(ghostObj, 200, 450);
             //PlaceObject(angelObj, 600, 200);
             //PlaceObject(crownObj, 100, 200);
             PlaceObject(act, 600, 200);

@@ -25,9 +25,15 @@ namespace DREAMS
 
         public override void Update() //обновление координат объекта
         {
+            Console.WriteLine($"Обновление координат спрайта {sprite.name} actor");
+            
             //x += SPEED_X; //постоянное движение вправо
             sprite.x = x;
             sprite.y = y;
+
+            Console.WriteLine($"X = {sprite.x}");
+            Console.WriteLine($"Y = {sprite.y}");
+
             //if (speed_x < 0)
             //{
             //    SetStates("Left");

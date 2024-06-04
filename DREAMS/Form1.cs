@@ -25,9 +25,8 @@ namespace DREAMS
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
+        {            
             AdventureGame.Update();
-            //game.room.Update();
             Refresh();
         }
 
@@ -36,13 +35,11 @@ namespace DREAMS
             if (e.KeyData == Keys.A || e.KeyData == Keys.Left)
             {
                 game.act.MoveLeft();
-                //Console.WriteLine("Нажата кнопка A или <");
             }
 
             if (e.KeyData == Keys.D || e.KeyData == Keys.Right)
             {
                 game.act.MoveRight();
-                //Console.WriteLine("Нажата кнопка D или >");
             }            
                 
         }
