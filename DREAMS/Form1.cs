@@ -18,10 +18,6 @@ namespace DREAMS
         {
             game = new MyGame();
 
-            //game.PlaceObject(room, 0, 0);
-            //game.PlaceObject(act, 300, 450);
-            //game.PlaceObject(ghostObj, 200, 450);
-            //game.PlaceObject(angelObj, 600, 200);
         }
         public Form1()
         {
@@ -30,17 +26,25 @@ namespace DREAMS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //game.Update();
-            //room.Update();
+            AdventureGame.Update();
+            //game.room.Update();
             Refresh();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //движение по клавишам WASD
         {
-            if (e.KeyData == Keys.A && e.KeyData == Keys.Left)
+            if (e.KeyData == Keys.A || e.KeyData == Keys.Left)
+            {
                 game.act.MoveLeft();
-            if (e.KeyData == Keys.D && e.KeyData == Keys.Right)
+                //Console.WriteLine("Нажата кнопка A или <");
+            }
+
+            if (e.KeyData == Keys.D || e.KeyData == Keys.Right)
+            {
                 game.act.MoveRight();
+                //Console.WriteLine("Нажата кнопка D или >");
+            }            
+                
         }
 
         private void Form1_Click(object sender, EventArgs e)

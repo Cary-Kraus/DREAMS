@@ -1,4 +1,5 @@
 ﻿using AdventureEngine;
+using System;
 using System.Collections.Generic;
 
 namespace DREAMS
@@ -21,20 +22,23 @@ namespace DREAMS
         {
             foreach (Object o in objects)
             {
-                if (o is Actor)
+                if (o is Actor)//проверка на столкновения гг
                 {
                     Actor a = (Actor)o;
                     if (a.selfLine.IsInside(new Line(100, 100, 350, 450)))
-                    {
-                        a.x--;
-                        o.Update(); //обновление движения
-                    }                        
+                    {                                                
+                        o.Stop();
+                        o.x--;
+                        o.Update(); //обновление движения actor
+                    }
                     else
-                        o.Stop();//останавливаем/обнуляем скорость 
+                        o.Update(); //обновление состояния actor
                 }
-            }
-
+                else
+                    o.Update();//пустой метод
+            }            
         }
+
         public void PlaceObject(Object o, int x, int y)
         {
             o.x = x;

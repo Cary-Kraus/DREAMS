@@ -23,6 +23,7 @@ namespace DREAMS
         }
         public virtual void Update()
         {
+
         }
 
         public void SetStates(string state)
@@ -31,8 +32,9 @@ namespace DREAMS
             {
                 currentState = state;
                 if (states.ContainsKey(currentState))
-                    sprite = states[currentState];
-            }            
+                    //sprite = states[currentState];//поменять спрайт
+                    GraphicsManager.ChangeSprite(sprite, states[currentState]);
+            }               
         }
         public virtual void Stop()
         {

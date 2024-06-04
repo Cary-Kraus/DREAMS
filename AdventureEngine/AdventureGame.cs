@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +31,7 @@ namespace DREAMS
         {
             CurrentRoom = room;
             GraphicsManager.AddSprite(room.sprite,0,0);
+            //Console.WriteLine($"Комната {room} установлена");
         }
         private static void GoToRoom(Room room)
         {
@@ -41,6 +43,7 @@ namespace DREAMS
             o.y = y;
             CurrentRoom.objects.Add(o);
             GraphicsManager.AddSprite(o.sprite, x, y);
+            //Console.WriteLine($"Объект {o} размещен");
         }
 
         
@@ -58,7 +61,7 @@ namespace DREAMS
         }
         public static void Update()
         {
-            //CurrentRoom.sprite
+            CurrentRoom.Update();
             //CurrentRoom.objects
         }
     }

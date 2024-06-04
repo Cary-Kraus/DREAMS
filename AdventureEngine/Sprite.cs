@@ -13,12 +13,14 @@ namespace AdventureEngine
         public Size size;
         public int x;
         public int y;
+        public string name;
 
-        public Sprite(Image image)
+        public Sprite(Image image, string name)
         {
             img = image;
             x = 0;
             y = 0;
+            this.name = name;
         }
         //public Sprite(string imagePath, int width, int height)
         //{            

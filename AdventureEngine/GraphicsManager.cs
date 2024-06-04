@@ -1,10 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing.Drawing2D;
+using System;
+using System.Security.Policy;
 
 namespace AdventureEngine
 {
@@ -31,11 +29,16 @@ namespace AdventureEngine
             sprite.x = x;
             sprite.y = y;
             sprites.Add(sprite);
+            //Console.WriteLine($"Спрайт {sprite} добавлен в список спрайтов");
         }
-        static void ChangeSprite(Sprite sprite1, Sprite sprite2)
+        public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {
+            //запоминаем координаты текщего спрайта и присваиваем новому
             sprites[sprites.IndexOf(sprite1)] = sprite2;
             sprites[sprites.IndexOf(sprite2)] = sprite1;
+
+            Console.WriteLine($"Индекс спрайта {sprite1.name} = {sprites.IndexOf(sprite1)}");
+            Console.WriteLine($"Индекс спрайта {sprite2.name} = {sprites.IndexOf(sprite2)}");            
         }
         static void DelSprite(Sprite sprite)
         {
@@ -47,10 +50,11 @@ namespace AdventureEngine
         }
         public static void UpdateGraphics(Graphics g)
         {
+            //Console.WriteLine("Обновление графики");
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
-                g.DrawImage(sprite.img, (float)sprite.x, (float)sprite.y);
+                g.DrawImage(sprite.img, sprite.x, sprite.y);
             }
         }
     }
