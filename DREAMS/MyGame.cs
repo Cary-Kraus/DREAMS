@@ -50,11 +50,12 @@ namespace DREAMS
             AddRoom("roomForest1", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
+            SetMainActor(act);
             SetRoom("roomForest1");
             PlaceObject(ghostObj, 200, 450);
             PlaceObject(angelObj, 600, 200);
             PlaceObject(crownObj, 100, 200);
-            PlaceObject(act, 600, 200);
+            //PlaceObject(act, 600, 200);
             //CurrentRoom.Update();
             
             

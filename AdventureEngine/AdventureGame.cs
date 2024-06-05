@@ -33,7 +33,8 @@ namespace DREAMS
             CurrentRoom = rooms[room];
             GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0);
             if (mainActor != null)
-                PlaceObject(mainActor, 600, 600);
+                PlaceObject(mainActor, 1400, 450);
+            else Console.WriteLine("Персонаж не найден");
         }
         private static void GoToRoom(Room room)
         {
@@ -53,6 +54,7 @@ namespace DREAMS
         public void SetMainActor(Actor actor)
         {
             mainActor = actor;
+            
         }
         private static void StartScript()
         {
