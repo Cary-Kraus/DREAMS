@@ -16,7 +16,7 @@ namespace AdventureEngine
         static List<Sprite> allSprites = new List<Sprite>();
 
         /// <summary>
-        /// Добавляет sprite в список. Отображает sprite по координатам x и y.
+        /// Добавляет sprite в список, сохраняя переданные координаты.
         /// </summary>
         /// <param name="sprite"></param>
         /// <param name="x"></param>
@@ -27,6 +27,11 @@ namespace AdventureEngine
             sprite.y = y;
             currentSprites.Add(sprite);
         }
+        /// <summary>
+        /// Меняет sprite1 в текущем списке на sprite2 из общего списка
+        /// </summary>
+        /// <param name="sprite1"></param>
+        /// <param name="sprite2"></param>
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
         {           
             if (currentSprites.Contains(sprite1) && allSprites.Contains(sprite2))
@@ -40,14 +45,25 @@ namespace AdventureEngine
                 }                
             }                      
         }
+        /// <summary>
+        /// Удаляет спрайт из списка текущих спрайтов
+        /// </summary>
+        /// <param name="sprite"></param>
         static void DelSprite(Sprite sprite)
         {
             currentSprites.Remove(sprite);
         }
+        /// <summary>
+        /// Очищает весь список текущих спрайтов
+        /// </summary>
         static void DelAll()
         {
             currentSprites.RemoveRange(0, currentSprites.Count());
         }
+        /// <summary>
+        /// Перебирает все текущие спрайты и перерисовывает по их координатам
+        /// </summary>
+        /// <param name="g"></param>
         public static void UpdateGraphics(Graphics g)
         {
             g.Clear(Color.Black);
@@ -56,6 +72,10 @@ namespace AdventureEngine
                 g.DrawImage(sprite.img, sprite.x, sprite.y);
             }
         }
+        /// <summary>
+        /// Добавляет спрайт в общий список спрайтов
+        /// </summary>
+        /// <param name="sprite"></param>
         public static void AddToAllSprites(Sprite sprite)
         {
             allSprites.Add(sprite);

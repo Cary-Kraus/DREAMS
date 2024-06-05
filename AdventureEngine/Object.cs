@@ -25,7 +25,11 @@ namespace DREAMS
         {
 
         }
-
+        /// <summary>
+        /// Меняет текущее состояние объекта на новое,
+        /// затем меняет спрайт объекта в соответствии с новым состоянием
+        /// </summary>
+        /// <param name="state"></param>
         public void SetStates(string state)
         {
             if (currentState != state)
@@ -36,9 +40,6 @@ namespace DREAMS
                     GraphicsManager.ChangeSprite(sprite, states[currentState]);
                     //sprite = states[currentState];//поменять спрайт
                 }
-
-
-
             }               
         }
         public virtual void Stop()

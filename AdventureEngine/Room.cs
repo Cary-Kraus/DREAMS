@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 namespace DREAMS
 {
+    /// <summary>
+    /// Представляет собой комнату, 
+    /// имеющую собственный спрайт (фон),
+    /// список объектов, находящихся в ней а также линию столкновения с персонажем
+    /// </summary>
     public class Room : Object
     {
         Line line;
@@ -18,6 +23,10 @@ namespace DREAMS
         {
 
         }
+        /// <summary>
+        /// Обновляет комнату (пока что нет)
+        /// и проверяет линию на столкновения с персонажем
+        /// </summary>
         public override void Update()
         {
             foreach (Object o in objects)
@@ -29,16 +38,19 @@ namespace DREAMS
                     {                                                
                         o.Stop();
                         o.x--;
-                        o.Update(); //обновление движения actor
                     }
-                    else
-                        o.Update(); //обновление состояния actor
+                    o.Update(); //обновление состояния actor
                 }
                 else
                     o.Update();//пустой метод
             }            
         }
-
+        /// <summary>
+        /// Добавляет объект в комнату и рисует его
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void PlaceObject(Object o, int x, int y)
         {
             o.x = x;
