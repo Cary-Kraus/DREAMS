@@ -1,9 +1,6 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using System.Security.Policy;
-using DREAMS;
 
 namespace AdventureEngine
 {
@@ -15,8 +12,8 @@ namespace AdventureEngine
     /// </summary>
     public static class GraphicsManager
     {
-        static List<Sprite> sprites = new List<Sprite>();
-        //static Graphics g;
+        static List<Sprite> currentSprites = new List<Sprite>();
+        static List<Sprite> allSprites = new List<Sprite>();
 
         /// <summary>
         /// Добавляет sprite в список. Отображает sprite по координатам x и y.
@@ -28,38 +25,40 @@ namespace AdventureEngine
         {
             sprite.x = x;
             sprite.y = y;
-            sprites.Add(sprite);
-            //Console.WriteLine($"Спрайт {sprite.name} добавлен в список спрайтов");
+            currentSprites.Add(sprite);
         }
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
-        {
-
-            //сохраняем кординаты sprite1 и присваиваем sprite2            
-
-            sprites[sprites.IndexOf(sprite1)] = sprite2;
-            sprites[sprites.IndexOf(sprite2)] = sprite1;
-            sprite2.x = sprite1.x;
-            sprite2.y = sprite1.y;
-            Console.WriteLine($"Координаты {sprite2.name}: {sprite2.x},{sprite2.y} ");
-            Console.WriteLine($"Координаты {sprite1.name}: {sprite1.x},{sprite1.y} ");
-                      
+        {           
+            if (currentSprites.Contains(sprite1) && allSprites.Contains(sprite2))
+            {
+                foreach (Sprite sprite in currentSprites)
+                {
+                    if (sprite.Equals(sprite1))
+                    {
+                        currentSprites[currentSprites.IndexOf(sprite)].img = sprite2.img;
+                    }
+                }                
+            }                      
         }
         static void DelSprite(Sprite sprite)
         {
-            sprites.Remove(sprite);
+            currentSprites.Remove(sprite);
         }
         static void DelAll()
         {
-            sprites.RemoveRange(0, sprites.Count());
+            currentSprites.RemoveRange(0, currentSprites.Count());
         }
         public static void UpdateGraphics(Graphics g)
         {
-            //Console.WriteLine("Обновление графики");
             g.Clear(Color.Black);
-            foreach (var sprite in sprites)
+            foreach (var sprite in currentSprites)
             {                
                 g.DrawImage(sprite.img, sprite.x, sprite.y);
             }
+        }
+        public static void AddToAllSprites(Sprite sprite)
+        {
+            allSprites.Add(sprite);
         }
     }
 }

@@ -32,12 +32,5 @@ namespace AdventureEngine
                    y == sprite.y &&
                    name == sprite.name;
         }
-        //public Sprite(string imagePath, int width, int height)
-        //{            
-        //    x = 0;
-        //    y = 0;
-        //    size = new Size(width, height);
-        //    img = Image.FromFile(imagePath);                        
-        //}
     }
 }

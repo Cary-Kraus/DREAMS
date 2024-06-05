@@ -33,16 +33,12 @@ namespace DREAMS
                 currentState = state;
                 if (states.ContainsKey(currentState))
                 {
-                    //int X = sprite.x;
-                    //int Y = sprite.y;
-                    //sprite = states[currentState];//поменять спрайт
-                    //sprite.x = X;
-                    //sprite.y = Y;
                     GraphicsManager.ChangeSprite(sprite, states[currentState]);
+                    //sprite = states[currentState];//поменять спрайт
                 }
-                    
 
-                 
+
+
             }               
         }
         public virtual void Stop()

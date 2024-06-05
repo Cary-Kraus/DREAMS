@@ -34,7 +34,6 @@ namespace DREAMS
             GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0);
             if (mainActor != null)
                 PlaceObject(mainActor, 600, 600);
-            //Console.WriteLine($"Комната {room} установлена");
         }
         private static void GoToRoom(Room room)
         {
@@ -46,7 +45,6 @@ namespace DREAMS
             o.y = y;
             CurrentRoom.objects.Add(o);
             GraphicsManager.AddSprite(o.sprite, x, y);
-            //Console.WriteLine($"Объект {o} размещен");
         }        
         public void DelObject(Object o)
         {
