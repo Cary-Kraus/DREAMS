@@ -42,25 +42,21 @@ namespace DREAMS
         public MyGame()
         {
             //Console.WriteLine($"Начат процесс создания игры");
-            Room roomForest1 = new Room(sForest1, new Line(0, 0, 0, 0));            
-            Room roomForest2 = new Room(sForest1, new Line(0, 0, 0, 0));            
-            Room roomForest3 = new Room(sForest1, new Line(0, 0, 0, 0));
+            AddRoom("roomForest1", new Room(sForest1, new Line(0, 0, 0, 0)));
+            AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
+            AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
+            //Room roomForest1 = new Room(sForest1, new Line(0, 0, 0, 0));            
+            //Room roomForest2 = new Room(sForest1, new Line(0, 0, 0, 0));            
+            //Room roomForest3 = new Room(sForest1, new Line(0, 0, 0, 0));
             //Console.WriteLine($"Комнаты {roomForest1},{roomForest2},{roomForest3} созданы");
-            CurrentRoom = roomForest1;
-            rooms = new Dictionary<string, Room>
-            {
-                { "ForestStart", roomForest1},
-                { "ForestGraveyard", roomForest2},
-                { "ForestFox", roomForest3}
-            };
             GraphicsManager.AddSprite(sActorLeft1, 0, 0);
             GraphicsManager.AddSprite(sActorRight1, 0, 0);
-            SetRoom(roomForest1);
+            SetRoom("roomForest1");
             //PlaceObject(ghostObj, 200, 450);
             //PlaceObject(angelObj, 600, 200);
             //PlaceObject(crownObj, 100, 200);
             PlaceObject(act, 600, 200);
-            CurrentRoom.Update();
+            //CurrentRoom.Update();
             
             
         }

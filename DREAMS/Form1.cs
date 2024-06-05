@@ -26,7 +26,7 @@ namespace DREAMS
 
         private void timer1_Tick(object sender, EventArgs e)
         {            
-            AdventureGame.Update();
+            game.Update();
             Refresh();
         }
 

@@ -15,22 +15,25 @@ namespace DREAMS
     {
         public Dictionary<string, Room> rooms;            
         public static Room CurrentRoom;
+        public Actor mainActor;
         //public List<Object> objects;
 
 
         public AdventureGame()
         {
-            //комнаты
+            rooms = new Dictionary<string, Room>();
         }
 
-        private void AddRoom(Room room)
+        public void AddRoom(string name, Room room)
         {
-            
+            rooms.Add(name, room);
         }
-        public void SetRoom(Room room)
+        public void SetRoom(string room)
         {
-            CurrentRoom = room;
-            GraphicsManager.AddSprite(room.sprite,0,0);
+            CurrentRoom = rooms[room];
+            GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0);
+            if (mainActor != null)
+                PlaceObject(mainActor, 600, 600);
             //Console.WriteLine($"Комната {room} установлена");
         }
         private static void GoToRoom(Room room)
@@ -44,12 +47,14 @@ namespace DREAMS
             CurrentRoom.objects.Add(o);
             GraphicsManager.AddSprite(o.sprite, x, y);
             //Console.WriteLine($"Объект {o} размещен");
-        }
-
-        
+        }        
         public void DelObject(Object o)
         {
             CurrentRoom.objects.Remove(o);
+        }
+        public void SetMainActor(Actor actor)
+        {
+            mainActor = actor;
         }
         private static void StartScript()
         {
@@ -59,7 +64,7 @@ namespace DREAMS
         {
 
         }
-        public static void Update()
+        public void Update()
         {
             CurrentRoom.Update();
             //CurrentRoom.objects
