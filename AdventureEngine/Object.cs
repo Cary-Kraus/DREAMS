@@ -23,7 +23,8 @@ namespace DREAMS
         }
         public virtual void Update()
         {
-
+            sprite.x = x;
+            sprite.y = y;
         }
         /// <summary>
         /// Меняет текущее состояние объекта на новое,

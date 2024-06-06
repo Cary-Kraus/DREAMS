@@ -23,6 +23,11 @@ namespace AdventureEngine
             this.name = name;
         }
 
+        public void Update()
+        {
+
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Sprite sprite &&

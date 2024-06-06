@@ -13,7 +13,6 @@ namespace AdventureEngine
     public static class GraphicsManager
     {
         static List<Sprite> currentSprites = new List<Sprite>();
-        static List<Sprite> allSprites = new List<Sprite>();
 
         /// <summary>
         /// Добавляет sprite в список, сохраняя переданные координаты.
@@ -33,17 +32,8 @@ namespace AdventureEngine
         /// <param name="sprite1"></param>
         /// <param name="sprite2"></param>
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
-        {           
-            if (currentSprites.Contains(sprite1) && allSprites.Contains(sprite2))
-            {
-                foreach (Sprite sprite in currentSprites)
-                {
-                    if (sprite.Equals(sprite1))
-                    {
-                        currentSprites[currentSprites.IndexOf(sprite)].img = sprite2.img;
-                    }
-                }                
-            }                      
+        {                                
+            currentSprites[currentSprites.IndexOf(sprite1)].img = sprite2.img;
         }
         /// <summary>
         /// Удаляет спрайт из списка текущих спрайтов
@@ -71,14 +61,6 @@ namespace AdventureEngine
             {                
                 g.DrawImage(sprite.img, sprite.x, sprite.y);
             }
-        }
-        /// <summary>
-        /// Добавляет спрайт в общий список спрайтов
-        /// </summary>
-        /// <param name="sprite"></param>
-        public static void AddToAllSprites(Sprite sprite)
-        {
-            allSprites.Add(sprite);
         }
     }
 }

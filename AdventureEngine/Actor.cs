@@ -20,12 +20,6 @@ namespace DREAMS
         {
 
         }
-
-        public override void Update() //обновление координат объекта
-        {            
-            sprite.x = x;
-            sprite.y = y;
-        }
         
         public void MoveLeft() //движение влево
         {

@@ -20,8 +20,6 @@ namespace DREAMS
         public static Sprite sActorRight0 = new Sprite(Image.FromFile(@"Sprites\actorright0.png"), "девочкаСтоитНаправо");
         public static Sprite sActorLeft1 = new Sprite(Image.FromFile(@"Sprites\actorleft1.gif"), "девочкаИдетНалево");
         public static Sprite sActorRight1 = new Sprite(Image.FromFile(@"Sprites\actorright1.gif"), "девочкаИдетНалево");
-        //public static Sprite sActorLeft1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак");
-        //public static Sprite sActorRight1 = new Sprite(Image.FromFile(@"Sprites\ghost0.png"), "призрак");
         public static Sprite sAngel1 = new Sprite(Image.FromFile(@"Sprites\angel1.png"), "ангел1");
         public static Sprite sCrown = new Sprite(Image.FromFile(@"Sprites\crown.png"), "корона1");         
 
@@ -37,24 +35,13 @@ namespace DREAMS
             });
         public MyGame()
         {
-            //добавляем все спрайты объектов в общий список. Оттуда мы будем брать спрайты для замены состояний
-            GraphicsManager.AddToAllSprites(sForest1);
-            GraphicsManager.AddToAllSprites(sGhost0);
-            GraphicsManager.AddToAllSprites(sGhost1);
-            GraphicsManager.AddToAllSprites(sActorLeft0);
-            GraphicsManager.AddToAllSprites(sActorRight0);
-            GraphicsManager.AddToAllSprites(sActorLeft1);
-            GraphicsManager.AddToAllSprites(sActorRight1);
-            GraphicsManager.AddToAllSprites(sAngel1);
-            GraphicsManager.AddToAllSprites(sCrown);
             AddRoom("roomForest1", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
             SetMainActor(act);
             SetRoom("roomForest1");
             PlaceObject(ghostObj, 200, 450);
-            PlaceObject(angelObj, 600, 200);
-            PlaceObject(crownObj, 100, 200);
+            PlaceObject(crownObj, 310, 200);
             //PlaceObject(act, 600, 200);
             //CurrentRoom.Update();
             
