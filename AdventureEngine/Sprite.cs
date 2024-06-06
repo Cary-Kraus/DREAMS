@@ -23,7 +23,12 @@ namespace AdventureEngine
             this.name = name;
         }
 
-        public void Update()
+        public Sprite()
+        {
+
+        }
+
+        public virtual void Update()
         {
 
         }

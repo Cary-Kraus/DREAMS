@@ -39,10 +39,10 @@ namespace DREAMS
                         o.Stop();
                         o.x--;
                     }
-                    o.Update(); //обновление состояния actor
+                    o.Update();
                 }
                 else
-                    o.Update();//пустой метод
+                    o.Update();
             }            
         }
         /// <summary>

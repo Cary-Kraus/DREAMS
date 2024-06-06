@@ -12,7 +12,8 @@ namespace AdventureEngine
     /// </summary>
     public static class GraphicsManager
     {
-        static List<Sprite> currentSprites = new List<Sprite>();
+        static List<Sprite> sprites = new List<Sprite>();
+        static List<Animation> currentAnimations = new List<Animation>();
 
         /// <summary>
         /// Добавляет sprite в список, сохраняя переданные координаты.
@@ -24,7 +25,7 @@ namespace AdventureEngine
         {
             sprite.x = x;
             sprite.y = y;
-            currentSprites.Add(sprite);
+            sprites.Add(sprite);
         }
         /// <summary>
         /// Меняет sprite1 в текущем списке на sprite2 из общего списка
@@ -32,8 +33,10 @@ namespace AdventureEngine
         /// <param name="sprite1"></param>
         /// <param name="sprite2"></param>
         public static void ChangeSprite(Sprite sprite1, Sprite sprite2)
-        {                                
-            currentSprites[currentSprites.IndexOf(sprite1)].img = sprite2.img;
+        {   
+            //if(sprite2 is Animation)
+            sprites[sprites.IndexOf(sprite1)].img = sprite2.img;
+
         }
         /// <summary>
         /// Удаляет спрайт из списка текущих спрайтов
@@ -41,14 +44,14 @@ namespace AdventureEngine
         /// <param name="sprite"></param>
         static void DelSprite(Sprite sprite)
         {
-            currentSprites.Remove(sprite);
+            sprites.Remove(sprite);
         }
         /// <summary>
         /// Очищает весь список текущих спрайтов
         /// </summary>
         static void DelAll()
         {
-            currentSprites.RemoveRange(0, currentSprites.Count());
+            sprites.RemoveRange(0, sprites.Count());
         }
         /// <summary>
         /// Перебирает все текущие спрайты и перерисовывает по их координатам
@@ -56,10 +59,14 @@ namespace AdventureEngine
         /// <param name="g"></param>
         public static void UpdateGraphics(Graphics g)
         {
+            //сделать рисовку анимации
             g.Clear(Color.Black);
-            foreach (var sprite in currentSprites)
-            {                
+            foreach (var sprite in sprites)
+            {
+                if (sprite is Animation)
+                    sprite.Update(); //обновление картинок в анимации
                 g.DrawImage(sprite.img, sprite.x, sprite.y);
+                
             }
         }
     }
