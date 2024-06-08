@@ -24,7 +24,7 @@ namespace DREAMS
         public MyGame()
         {
             act = new Girl();
-            AddRoom("roomForest1", new Room(sForest1, new Line(0, 0, 0, 0)));
+            AddRoom("roomForest1", new Room(sForest1, new Line(800, 1000, 450, 450)));
             AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
             SetMainActor(act);
@@ -32,20 +32,29 @@ namespace DREAMS
             act.x = 1400;
             act.y = 450;
             PlaceObject(ghostObj, 200, 450);
-            PlaceObject(crownObj, 1010, 450);
-            crownObj.insideScript = ChangeToForest2;
-            //PlaceObject(act, 600, 200);
-            //CurrentRoom.Update();
-            MyGame.StartScript(GhostMove);
+            PlaceObject(crownObj, 318, 260);
+            //crownObj.insideScript = ChangeToForest2;
+            act.insideScript = ChangeToForest2; //пересечение с линией комнаты
+            //StartScript(GhostMove);
         } 
         
         void ChangeToForest2()
         {
             SetRoom("roomForest2");
             act.x = 1400;
-            act.y = 200;
+            act.y = 450;
+        }
+        void ChangeToForest3()
+        {
+            SetRoom("roomForest3");
+            act.x = 1400;
+            act.y = 450;
         }
 
+        void StartDialogWithGhost()
+        {
+
+        }
         void GhostMove()
         {
             Random r = new Random();

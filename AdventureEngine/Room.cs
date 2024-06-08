@@ -24,18 +24,14 @@ namespace DREAMS
 
         /// <summary>
         /// Обновляет комнату (пока что нет)
-        /// и проверяет линию на столкновения с персонажем
+        /// и проверяет линию на столкновения с персонажем и в случае столкновения вызывает скрипт
         /// </summary>
         public override void Update()
         {
             foreach (Object o in objects)
             {
-                //if (o is Actor)//проверка на столкновения гг
-                {
-                    //Actor a = (Actor)o;
-                    if (o.selfLine.IsInside(mainActor.selfLine) && o.insideScript != null)
-                        o.insideScript();
-                }
+                if (o.selfLine.IsInside(mainActor.selfLine) && line.IsInside(mainActor.selfLine) && o.insideScript != null )
+                    o.insideScript();
                 o.Update();
             }
             List<Object> objs = new List<Object>();

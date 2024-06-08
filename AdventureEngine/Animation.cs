@@ -10,8 +10,8 @@ namespace AdventureEngine
     public class Animation : Sprite
     {
         Image[] images;
-        int cur_frame;
-        public bool running;
+        int cur_frame; //текущий кадр
+        public bool running; //запущена ли анимация
 
         public Animation(List<string> frames)
         {
@@ -20,19 +20,23 @@ namespace AdventureEngine
             cur_frame = 0;
             images = new Image[frames.Count];
             for (int i = 0; i < images.Length; i++)
-                images[i] = new Sprite(frames[i]).img;
+                images[i] = new Sprite(frames[i]).img; //заполнить массив картинками
             img = images[0];
             running = true;
         }
+        /// <summary>
+        /// Обновляет(заменяет на следующий) текущий спрайт в анимации
+        /// </summary>
         public override void Update()
         {
             //при каждом вызове этого метод текущий спрайт должен меняться на след.
             if (running)
             {
-                img = images[cur_frame++];
+                img = images[cur_frame++]; //меняем текущее изобр. на след. в массиве
                 if (cur_frame == images.Length)
                     cur_frame = 0;
             }
+            else img = images[0];
         }
     }
 }

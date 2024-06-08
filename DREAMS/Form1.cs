@@ -40,8 +40,11 @@ namespace DREAMS
             if (e.KeyData == Keys.D || e.KeyData == Keys.Right)
             {
                 game.act.MoveRight();
-            }            
-              //key up 
+            }                         
+        }
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            game.act.Stop();
         }
 
         private void Form1_Click(object sender, EventArgs e)

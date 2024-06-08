@@ -12,7 +12,7 @@ namespace DREAMS
         
         public Actor(Sprite left, Sprite right) : base(left)
         {                       
-            this.states = new Dictionary<string, Sprite>()
+            states = new Dictionary<string, Sprite>()
             {
                 { "Left", left },
                 { "Right", right }
@@ -32,7 +32,7 @@ namespace DREAMS
         }
         public override void Stop()
         {
-            x = 0;
+            //running = false;
         }
     }
 }

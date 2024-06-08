@@ -21,6 +21,9 @@ namespace DREAMS
             currentState = "default";
             selfLine = new Line(sprite.x, sprite.x + sprite.img.Width, sprite.y, sprite.y - sprite.img.Height);
         }
+        /// <summary>
+        /// Обновляет координты спрайта и линии объекта 
+        /// </summary>
         public virtual void Update()
         {
             sprite.x = x;
@@ -41,9 +44,10 @@ namespace DREAMS
             {                
                 currentState = state;
                 GraphicsManager.ChangeSprite(sprite, states[currentState]);
-                sprite = states[currentState];//поменять спрайт
+                sprite = states[currentState];
             }               
         }
+        
         public virtual void Stop()
         {
 

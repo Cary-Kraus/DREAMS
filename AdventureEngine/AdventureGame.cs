@@ -28,18 +28,27 @@ namespace DREAMS
         {
             rooms.Add(name, room);
         }
+        /// <summary>
+        /// Устанавливает комнату как текущую. 
+        /// </summary>
+        /// <param name="room"></param>
         public void SetRoom(string room)
         {
             if (CurrentRoom != null && mainActor != null)
-                mainActor.present = false;
-            CurrentRoom = rooms[room];
-            GraphicsManager.DelAll();
-            GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0);
-            PlaceObject(mainActor, 0, 0);
+                mainActor.present = false; //удаляем actor из текущей комнаты
+            CurrentRoom = rooms[room]; //меняяем текущую комнату
+            GraphicsManager.DelAll(); //удаляем все спрайты
+            GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0); //добавляем фон
+            PlaceObject(mainActor, 0, 0); //помещаем actor
             CurrentRoom.mainActor = mainActor;
-            mainActor.present = true;
+            mainActor.present = true; //добавляем actor
         }
-
+        /// <summary>
+        /// Поместить объект в текущую комнату
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void PlaceObject(Object o, int x, int y)
         {
             o.x = x;
@@ -61,12 +70,11 @@ namespace DREAMS
         }
         public static void StopScript()
         {
-
+            //создать список скриптов 
         }
         public void Update()
         {
             CurrentRoom.Update();
-            //CurrentRoom.objects
         }
     }
 }

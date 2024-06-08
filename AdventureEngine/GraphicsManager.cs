@@ -31,7 +31,7 @@ namespace AdventureEngine
             sprite.tag = tag;
         }
         /// <summary>
-        /// Меняет sprite1 в текущем списке на sprite2 из общего списка
+        /// Меняет sprite1 на sprite2
         /// </summary>
         /// <param name="sprite1"></param>
         /// <param name="sprite2"></param>
@@ -41,7 +41,7 @@ namespace AdventureEngine
             sprites[i] = sprite2;
         }
         /// <summary>
-        /// Удаляет спрайт из списка текущих спрайтов
+        /// Удаляет спрайт из списка спрайтов
         /// </summary>
         /// <param name="sprite"></param>
         public static void DelSprite(Sprite sprite)
@@ -49,7 +49,7 @@ namespace AdventureEngine
             sprites.Remove(sprite);
         }
         /// <summary>
-        /// Очищает весь список текущих спрайтов
+        /// Очищает весь список спрайтов
         /// </summary>
         public static void DelAll()
         {
@@ -61,7 +61,6 @@ namespace AdventureEngine
         /// <param name="g"></param>
         public static void UpdateGraphics(Graphics g)
         {
-            //сделать рисовку анимации
             g.Clear(Color.Black);
             foreach (var sprite in sprites)
             {
