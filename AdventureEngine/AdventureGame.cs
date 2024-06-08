@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DREAMS
@@ -14,10 +15,9 @@ namespace DREAMS
     public class AdventureGame
     {
         public Dictionary<string, Room> rooms;            
-        public static Room CurrentRoom;
+        public static Room CurrentRoom = null;
         public Actor mainActor;
-        //public List<Object> objects;
-
+        delegate void Script();
 
         public AdventureGame()
         {
@@ -30,21 +30,21 @@ namespace DREAMS
         }
         public void SetRoom(string room)
         {
+            if (CurrentRoom != null && mainActor != null)
+                mainActor.present = false;
             CurrentRoom = rooms[room];
+            GraphicsManager.DelAll();
             GraphicsManager.AddSprite(CurrentRoom.sprite, 0, 0);
-            if (mainActor != null)
-                PlaceObject(mainActor, 1400, 450);
+            PlaceObject(mainActor, 0, 0);
+            CurrentRoom.mainActor = mainActor;
+            mainActor.present = true;
         }
-        private static void GoToRoom(Room room)
-        {
 
-        }
         public void PlaceObject(Object o, int x, int y)
         {
             o.x = x;
             o.y = y;
-            CurrentRoom.objects.Add(o);
-            GraphicsManager.AddSprite(o.sprite, x, y);
+            CurrentRoom.PlaceObject(o, x, y);
         }        
         public void DelObject(Object o)
         {
@@ -55,11 +55,11 @@ namespace DREAMS
             mainActor = actor;
             
         }
-        private static void StartScript()
+        public static void StartScript(ThreadStart script)
         {
-
+            new Thread(script).Start();
         }
-        private static void StopScript()
+        public static void StopScript()
         {
 
         }

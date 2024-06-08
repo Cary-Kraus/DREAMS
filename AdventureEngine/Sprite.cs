@@ -13,14 +13,13 @@ namespace AdventureEngine
         public Size size;
         public int x;
         public int y;
-        public string name;
+        public int tag;
 
-        public Sprite(Image image, string name)
+        public Sprite(string name)
         {
-            img = image;
+            img = Image.FromFile(name);
             x = 0;
             y = 0;
-            this.name = name;
         }
 
         public Sprite()
@@ -39,8 +38,7 @@ namespace AdventureEngine
                    EqualityComparer<Image>.Default.Equals(img, sprite.img) &&
                    EqualityComparer<Size>.Default.Equals(size, sprite.size) &&
                    x == sprite.x &&
-                   y == sprite.y &&
-                   name == sprite.name;
+                   y == sprite.y;
         }
     }
 }

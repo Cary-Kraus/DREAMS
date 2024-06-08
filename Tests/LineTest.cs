@@ -25,49 +25,55 @@ namespace Tests
         [TestMethod]
         public void LineOutLine1()
         {
-            line1.IsInside(new Line(10, 20, 2, 2));
+            Assert.IsTrue(line1.IsInside(new Line(10, 20, 2, 2)));
         }
 
         [TestMethod]
         public void LineOutLine2()
         {
-            line1.IsInside(new Line(5, 15, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(5, 15, 10, 10)));
         }
 
         [TestMethod]
         public void LineOutLine3()
         {
-            line1.IsInside(new Line(1, 5, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(1, 5, 10, 10)));
+        }
+
+        [TestMethod]
+        public void LineOutLine33()
+        {
+            Assert.IsFalse(line1.IsInside(new Line(21, 25, 10, 10)));
         }
 
         [TestMethod]
         public void LineTouchLeft()
         {
-            line1.IsInside(new Line(1, 10, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(1, 10, 10, 10)));
         }
 
         [TestMethod]
         public void LineTouchRight()
         {
-            line1.IsInside(new Line(20, 30, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(20, 30, 10, 10)));
         }
 
         [TestMethod]
         public void LineCrossLeft()
         {
-            line1.IsInside(new Line(5, 15, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(5, 15, 10, 10)));
         }
 
         [TestMethod]
         public void LineCrossRight()
         {
-            line1.IsInside(new Line(15, 25, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(15, 25, 10, 10)));
         }
 
         [TestMethod]
         public void LineInsideLine()
         {
-            line1.IsInside(new Line(5, 25, 10, 10));
+            Assert.IsFalse(line1.IsInside(new Line(1, 25, 10, 10)));
         }
     }
 }

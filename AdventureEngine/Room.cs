@@ -13,16 +13,15 @@ namespace DREAMS
     {
         Line line;
         public List<Object> objects;
+        public Actor mainActor;
+
         public Room(Sprite sprite, Line line) : base(sprite)
         {
             this.line = line;
             this.sprite = sprite;
             objects = new List<Object>();
         }
-        public void PlaceRoom()
-        {
 
-        }
         /// <summary>
         /// Обновляет комнату (пока что нет)
         /// и проверяет линию на столкновения с персонажем
@@ -31,19 +30,19 @@ namespace DREAMS
         {
             foreach (Object o in objects)
             {
-                if (o is Actor)//проверка на столкновения гг
+                //if (o is Actor)//проверка на столкновения гг
                 {
-                    Actor a = (Actor)o;
-                    if (a.selfLine.IsInside(new Line(100, 100, 350, 450)))
-                    {                                                
-                        o.Stop();
-                        o.x--;
-                    }
-                    o.Update();
+                    //Actor a = (Actor)o;
+                    if (o.selfLine.IsInside(mainActor.selfLine) && o.insideScript != null)
+                        o.insideScript();
                 }
-                else
-                    o.Update();
-            }            
+                o.Update();
+            }
+            List<Object> objs = new List<Object>();
+            foreach (Object o in objects)
+                if (o.present)
+                    objs.Add(o);
+            objects = objs;
         }
         /// <summary>
         /// Добавляет объект в комнату и рисует его

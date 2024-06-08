@@ -23,13 +23,7 @@ namespace AdventureEngine
 
         public bool IsInside(Line lin)
         {
-
-            if (x1 == 0 && x2 == 0 && y1 - lin.y1 >= 0 && y2 - lin.y2 <= 0)
-                return true;
-            else if (y1 == 0 && y2 == 0 && x1 - lin.x1 >= 0 && x2 - lin.x2 <= 0)
-                return true;
-            else return false;
-
+            return lin.x1 >= x1 && lin.x2 <= x2;
         }
 
         public bool IsOnTarget(Line lin)

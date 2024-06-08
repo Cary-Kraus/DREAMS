@@ -6,37 +6,33 @@ namespace DREAMS
 {
     public class Actor : Object
     {
-        const int SPEED_X = 5;
+        const int SPEED_X = 2;
         public static int MaxX;
-        public Line selfLine;
         
-        public Actor(Dictionary<string, Sprite> states)
+        
+        public Actor(Sprite left, Sprite right) : base(left)
         {                       
-            this.states = states;
-            sprite = states["Left"];
-            selfLine = new Line(sprite.x, sprite.x, sprite.y, sprite.y - sprite.img.Height);
-        }
-        public Actor()
-        {
-
+            this.states = new Dictionary<string, Sprite>()
+            {
+                { "Left", left },
+                { "Right", right }
+            };
+            currentState = "Left";
         }
         
         public void MoveLeft() //движение влево
-        {
+        {         
+            SetState("Left");
             x -= SPEED_X;
-            SetStates("GoLeft");
-            Update();
         }
         public void MoveRight() //движение вправо
-        {
+        {           
+            SetState("Right");
             x += SPEED_X;
-            SetStates("GoRight");
-            Update();
         }
         public override void Stop()
         {
             x = 0;
-            Update();
         }
     }
 }

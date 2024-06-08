@@ -41,7 +41,7 @@ namespace DREAMS
             {
                 game.act.MoveRight();
             }            
-                
+              //key up 
         }
 
         private void Form1_Click(object sender, EventArgs e)
