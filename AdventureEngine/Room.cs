@@ -14,12 +14,16 @@ namespace DREAMS
         Line line;
         public List<Object> objects;
         public Actor mainActor;
+        public int roomHeigt;
+        public int roomWidht;
 
         public Room(Sprite sprite, Line line) : base(sprite)
         {
             this.line = line;
             this.sprite = sprite;
             objects = new List<Object>();
+            roomHeigt = sprite.size.Height;
+            roomWidht = sprite.size.Width;
         }
 
         /// <summary>
@@ -32,6 +36,14 @@ namespace DREAMS
             {
                 if (o.selfLine.IsInside(mainActor.selfLine) && line.IsInside(mainActor.selfLine) && o.insideScript != null )
                     o.insideScript();
+                //if (o is Actor && o.x >= roomWidht - 140)//столкновение с границей
+                //{
+                //    Actor a;
+                //    a = (Actor)o;
+                //    a.x -= 5;
+                //}
+                if (o.x >= roomWidht - 140)//столкновение с границей
+                    o.x -= 5;
                 o.Update();
             }
             List<Object> objs = new List<Object>();

@@ -20,6 +20,8 @@ namespace AdventureEngine
             img = Image.FromFile(name);
             x = 0;
             y = 0;
+            size.Width = img.Width;
+            size.Height = img.Height;
         }
         public Sprite()
         {

@@ -45,6 +45,7 @@
     <Compile Include="Quest.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Sprite.cs" />
+    <Compile Include="Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

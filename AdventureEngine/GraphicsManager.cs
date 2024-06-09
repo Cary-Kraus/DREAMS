@@ -13,7 +13,7 @@ namespace AdventureEngine
     public static class GraphicsManager
     {
         static List<Sprite> sprites = new List<Sprite>();
-        static List<Animation> currentAnimations = new List<Animation>();
+        static List<Text> textMessages = new List<Text>();
         static int tag = 0;
 
         /// <summary>
@@ -55,6 +55,14 @@ namespace AdventureEngine
         {
             sprites.Clear();
         }
+        public static void AddText(int x, int y, string text)
+        {
+            textMessages.Add(new Text(text, x, y));
+        }
+        public static void ClearText()
+        {
+            textMessages.Clear();
+        }
         /// <summary>
         /// Перебирает все текущие спрайты и перерисовывает по их координатам
         /// </summary>
@@ -67,6 +75,12 @@ namespace AdventureEngine
                 sprite.Update(); //обновление картинок в анимации
                 g.DrawImage(sprite.img, sprite.x, sprite.y);               
             }
+            foreach (Text text in textMessages)
+            {
+                g.DrawString(text.text, text.font, text.brush, text.x, text.y);
+            }
+            //if (curText != null)
+            //    g.DrawString(cur)
         }
     }
 }

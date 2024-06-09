@@ -16,39 +16,17 @@ namespace DREAMS
         public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");    
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
         public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
-        public static Animation anActGoLeft = new Animation(new List<string>() 
-        { 
-            @"Sprites\act\go\left\1.png",
-            @"Sprites\act\go\left\2.png",
-            @"Sprites\act\go\left\3.png",
-            @"Sprites\act\go\left\4.png",
-            @"Sprites\act\go\left\5.png",
-            @"Sprites\act\go\left\6.png",
-            @"Sprites\act\go\left\7.png",
-            @"Sprites\act\go\left\8.png", 
-        });
-        public static Animation anActGoRight = new Animation(new List<string>()
-        {
-            @"Sprites\act\go\right\1.png",
-            @"Sprites\act\go\right\2.png",
-            @"Sprites\act\go\right\3.png",
-            @"Sprites\act\go\right\4.png",
-            @"Sprites\act\go\right\5.png",
-            @"Sprites\act\go\right\6.png",
-            @"Sprites\act\go\right\7.png",
-            @"Sprites\act\go\right\8.png",
-        });
 
-        //Object dialogWndw = new Object(sDialogWindow);
         Object ghostObj = new Object(sGhost0);
         Object angelObj = new Object(sAngel1);
         Object crownObj = new Object(sCrown);
         public Actor act;
+        //public Text text1;
         public MyGame()
         {
             act = new Girl();
             AddRoom("roomForest1", new Room(sForest1, new Line(900, 1100, 450, 450)));
-            AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
+            AddRoom("roomForest2", new Room(sForest2, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
             SetMainActor(act);
             SetRoom("roomForest1");
@@ -57,8 +35,8 @@ namespace DREAMS
             PlaceObject(ghostObj, 200, 450);
             PlaceObject(crownObj, 318, 260);
             //crownObj.insideScript = ChangeToForest2;
-            //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
-            act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
+            act.insideScript = ChangeToForest2; //пересечение с линией комнаты
+            //act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
             //StartScript(GhostMove);
         }
 
@@ -78,7 +56,10 @@ namespace DREAMS
         void StartDialogWithGhost()
         {
             GraphicsManager.AddSprite(sDialogWindow, 0, 670);
-            act.Stop();
+            GraphicsManager.AddText(50, 700, "А ты совсем не страшный");
+            //curText = new Text("А ты совсем не страшный", 50, 800);
+            act.Stop(); //остановить
+            act.BunRun(); //запретить перемещение
         }
         void GhostMove()
         {

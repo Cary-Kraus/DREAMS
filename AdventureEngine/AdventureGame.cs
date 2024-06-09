@@ -16,6 +16,7 @@ namespace DREAMS
     {
         public Dictionary<string, Room> rooms;            
         public static Room CurrentRoom = null;
+        public static Text curText = null;
         public Actor mainActor;
         delegate void Script();
 
