@@ -32,7 +32,7 @@ namespace DREAMS
         }
         public override void Stop()
         {
-            //running = false;
+            //запретить перемещаться
         }
     }
 }

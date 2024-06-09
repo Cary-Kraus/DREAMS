@@ -9,14 +9,16 @@ namespace DREAMS
     public class MyGame : AdventureGame
     {     
         public static Sprite sForest1 = new Sprite(@"Sprites\лес1.png");
+        public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");
         public static Sprite sGhost0 = new Sprite(@"Sprites\ghost0.png");
         public static Sprite sGhost1 = new Sprite(@"Sprites\ghost1.png");
         public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");
         public static Sprite sActorLeft0 = new Sprite(@"Sprites\actorleft0.png");
         public static Sprite sActorRight0 = new Sprite(@"Sprites\actorright0.png");     
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
-        public static Sprite sCrown = new Sprite(@"Sprites\crown.png");         
+        public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
 
+        //Object dialogWndw = new Object(sDialogWindow);
         Object ghostObj = new Object(sGhost0);
         Object angelObj = new Object(sAngel1);
         Object crownObj = new Object(sCrown);
@@ -24,7 +26,7 @@ namespace DREAMS
         public MyGame()
         {
             act = new Girl();
-            AddRoom("roomForest1", new Room(sForest1, new Line(800, 1000, 450, 450)));
+            AddRoom("roomForest1", new Room(sForest1, new Line(900, 1100, 450, 450)));
             AddRoom("roomForest2", new Room(sForest1, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
             SetMainActor(act);
@@ -34,10 +36,11 @@ namespace DREAMS
             PlaceObject(ghostObj, 200, 450);
             PlaceObject(crownObj, 318, 260);
             //crownObj.insideScript = ChangeToForest2;
-            act.insideScript = ChangeToForest2; //пересечение с линией комнаты
+            //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
+            act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
             //StartScript(GhostMove);
-        } 
-        
+        }
+
         void ChangeToForest2()
         {
             SetRoom("roomForest2");
@@ -53,7 +56,8 @@ namespace DREAMS
 
         void StartDialogWithGhost()
         {
-
+            GraphicsManager.AddSprite(sDialogWindow, 0, 670);
+            act.Stop();
         }
         void GhostMove()
         {
