@@ -11,10 +11,14 @@ namespace DREAMS
     {
         
         public Girl() : base(
-            new Animation(new List<string>() { @"Sprites\actorleft11.png",
-                @"Sprites\actorleft12.png"}),
-            new Animation(new List<string>() { @"Sprites\actorright11.png",
-                @"Sprites\actorright12.png"}))
+            new Animation(new List<string>() { @"Sprites\act\stay\left\1.png",
+                                                @"Sprites\act\stay\left\2.png",
+                                                @"Sprites\act\stay\left\3.png",
+                                                @"Sprites\act\stay\left\4.png"}),
+            new Animation(new List<string>() { @"Sprites\act\stay\right\1.png",
+                                                @"Sprites\act\stay\right\2.png",
+                                                @"Sprites\act\stay\right\3.png",
+                                                @"Sprites\act\stay\right\4.png"}))
             {            
 
         }

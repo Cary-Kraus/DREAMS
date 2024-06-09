@@ -9,14 +9,35 @@ namespace DREAMS
     public class MyGame : AdventureGame
     {     
         public static Sprite sForest1 = new Sprite(@"Sprites\лес1.png");
+        public static Sprite sForest2 = new Sprite(@"Sprites\лес2.png");
         public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");
         public static Sprite sGhost0 = new Sprite(@"Sprites\ghost0.png");
         public static Sprite sGhost1 = new Sprite(@"Sprites\ghost1.png");
-        public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");
-        public static Sprite sActorLeft0 = new Sprite(@"Sprites\actorleft0.png");
-        public static Sprite sActorRight0 = new Sprite(@"Sprites\actorright0.png");     
+        public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");    
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
         public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
+        public static Animation anActGoLeft = new Animation(new List<string>() 
+        { 
+            @"Sprites\act\go\left\1.png",
+            @"Sprites\act\go\left\2.png",
+            @"Sprites\act\go\left\3.png",
+            @"Sprites\act\go\left\4.png",
+            @"Sprites\act\go\left\5.png",
+            @"Sprites\act\go\left\6.png",
+            @"Sprites\act\go\left\7.png",
+            @"Sprites\act\go\left\8.png", 
+        });
+        public static Animation anActGoRight = new Animation(new List<string>()
+        {
+            @"Sprites\act\go\right\1.png",
+            @"Sprites\act\go\right\2.png",
+            @"Sprites\act\go\right\3.png",
+            @"Sprites\act\go\right\4.png",
+            @"Sprites\act\go\right\5.png",
+            @"Sprites\act\go\right\6.png",
+            @"Sprites\act\go\right\7.png",
+            @"Sprites\act\go\right\8.png",
+        });
 
         //Object dialogWndw = new Object(sDialogWindow);
         Object ghostObj = new Object(sGhost0);
