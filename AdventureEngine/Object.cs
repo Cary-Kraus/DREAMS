@@ -14,6 +14,7 @@ namespace DREAMS
         public delegate void InsideScript();
         public InsideScript insideScript = null;
         public bool present = true;
+        public bool clicked = false;
 
         public Object(Sprite s)
         {
@@ -51,6 +52,13 @@ namespace DREAMS
         public virtual void Stop()
         {
 
+        }
+        public void StartScriptClick()
+        {
+            if (!clicked)
+                clicked = true;
+            x = x + 10;
+            y = y + 10;
         }
     }
 }

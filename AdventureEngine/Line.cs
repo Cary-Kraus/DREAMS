@@ -13,6 +13,7 @@ namespace AdventureEngine
         public int y1;
         public int y2;
 
+
         public Line(int x1, int x2, int y1, int y2)
         {
             this.x1 = x1;

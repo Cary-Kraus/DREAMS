@@ -62,8 +62,7 @@ namespace DREAMS
         }
         public void SetMainActor(Actor actor)
         {
-            mainActor = actor;
-            
+            mainActor = actor;            
         }
         public static void StartScript(ThreadStart script)
         {
@@ -76,6 +75,15 @@ namespace DREAMS
         public void Update()
         {
             CurrentRoom.Update();
+        }
+        public void CheckClick(int MouseX, int MouseY)
+        {
+            foreach ( Object obj in CurrentRoom.objects)
+            {
+                if (MouseX >= obj.sprite.x && MouseX <= obj.sprite.x + obj.sprite.img.Width)
+                    if (MouseY >= obj.sprite.y && MouseY <= obj.sprite.y + obj.sprite.img.Height)
+                        obj.StartScriptClick();
+            }
         }
     }
 }

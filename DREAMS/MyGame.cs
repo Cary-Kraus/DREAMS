@@ -43,6 +43,7 @@ namespace DREAMS
         void ChangeToForest2()
         {
             SetRoom("roomForest2");
+            PlaceObject(angelObj, 750, 130);
             act.x = 1400;
             act.y = 450;
         }

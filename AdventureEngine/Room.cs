@@ -5,9 +5,10 @@ using System.Collections.Generic;
 namespace DREAMS
 {
     /// <summary>
-    /// Представляет собой комнату, 
-    /// имеющую собственный спрайт (фон),
-    /// список объектов, находящихся в ней а также линию столкновения с персонажем
+    /// Игровая локация.
+    /// Sprite - фон;
+    /// Line - невидимая линия, при столкновении с которой что-то происходит (или нет)
+    /// objects - список все объектов текущей локации
     /// </summary>
     public class Room : Object
     {
@@ -23,7 +24,10 @@ namespace DREAMS
             this.sprite = sprite;
             objects = new List<Object>();
             roomHeigt = sprite.size.Height;
-            roomWidht = sprite.size.Width;
+            roomWidht = sprite.size.Width - 140; //отнимается ширина спрайта actor
+            //нужно сделать line вместо границ комнаты.
+            //Тогда переход из одной комнаты в другую может быть открыт или закрыт
+            //можно сделать наследника line door, у него будет состояние opened/closed
         }
 
         /// <summary>
@@ -36,13 +40,7 @@ namespace DREAMS
             {
                 if (o.selfLine.IsInside(mainActor.selfLine) && line.IsInside(mainActor.selfLine) && o.insideScript != null )
                     o.insideScript();
-                //if (o is Actor && o.x >= roomWidht - 140)//столкновение с границей
-                //{
-                //    Actor a;
-                //    a = (Actor)o;
-                //    a.x -= 5;
-                //}
-                if (o.x >= roomWidht - 140)//столкновение с границей
+                if (o.x >= roomWidht)//столкновение с границей комнаты
                     o.x -= 5;
                 o.Update();
             }

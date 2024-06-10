@@ -49,7 +49,7 @@ namespace DREAMS
 
         private void Form1_Click(object sender, EventArgs e)
         {
-
+            game.CheckClick(MousePosition.X, MousePosition.Y);
         }
     }
 }
