@@ -6,20 +6,6 @@ namespace Tests
     [TestClass]
     public class LineTest
     {       
-        //public void TestLine(Line l1, Line l2)
-        //{
-        //    bool b; //костыль
-        //    bool t = false; //костыль
-        //    // нужно ли вычислять и сравнивать расстояние???????
-        //    double linLenth = Math.Sqrt(Math.Pow(l1.x2 - l1.x1, 2.0) + 1); //длина линии lin
-        //    double thisLenth = Math.Sqrt(Math.Pow(l2.x2 - l2.x1, 2.0) + 1); //длина текущей линии
-        //    if (linLenth - thisLenth >= 0 && l1.y == l2.y)
-        //        if (l2.x1 - l1.x1 > 0 && l2.x2 - l1.x2 < 0)
-        //            b = true;
-        //        else b = false;
-        //    else b = false;
-        //    Assert.AreEqual(t, b);
-        //}
         Line line1 = new Line(10, 20, 10, 10);
 
         [TestMethod]

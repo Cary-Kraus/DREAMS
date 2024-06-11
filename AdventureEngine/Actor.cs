@@ -8,7 +8,9 @@ namespace DREAMS
     {
         public const int SPEED_X = 3;
         //public readonly int SPEED_X = 3;
-        public static int MaxX;      
+        public static int MaxX;
+        public List<object> inventory;
+        public bool stop_input = false;
         
         public Actor(Sprite left, Sprite right, Sprite runLeft, Sprite runRight) : base(left)
         {                       
@@ -20,15 +22,21 @@ namespace DREAMS
                 {"RunRight", runRight }
             };
             currentState = "Left";
+            z = 20;
         }
         
         public void MoveLeft() //движение влево
         {
+            if (stop_input) 
+                return;
             x -= SPEED_X;
-            SetState("RunLeft");        
+            SetState("RunLeft");
+        
         }
         public void MoveRight() //движение вправо
         {
+            if (stop_input)
+                return;
             x += SPEED_X;
             SetState("RunRight");    
         }
@@ -45,9 +53,11 @@ namespace DREAMS
         /// </summary>
         public void BunRun()
         {
-            //обнулить скорость
-            //или
-            
+            stop_input = true;
+        }
+        public void PickUpObject(Object obj)
+        {
+            inventory.Add(obj);
         }
     }
 }

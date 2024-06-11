@@ -70,6 +70,7 @@ namespace AdventureEngine
         public static void UpdateGraphics(Graphics g)
         {
             g.Clear(Color.Black);
+            sprites.Sort((e1, e2) => e1.z - e2.z);
             foreach (var sprite in sprites)
             {
                 sprite.Update(); //обновление картинок в анимации

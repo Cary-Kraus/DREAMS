@@ -13,6 +13,7 @@ namespace AdventureEngine
         public Size size;
         public int x;
         public int y;
+        public int z;
         public int tag;
 
         public Sprite(string name)

@@ -11,20 +11,23 @@ namespace DREAMS
         public static Sprite sForest1 = new Sprite(@"Sprites\лес1.png");
         public static Sprite sForest2 = new Sprite(@"Sprites\лес2.png");
         public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");
-        public static Sprite sGhost0 = new Sprite(@"Sprites\ghost0.png");
-        public static Sprite sGhost1 = new Sprite(@"Sprites\ghost1.png");
-        public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");    
+        //public static Sprite sGhost0 = new Sprite(@"Sprites\ghost0.png");
+        //public static Sprite sGhost1 = new Sprite(@"Sprites\ghost1.png");
+        //public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");    
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
         public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
 
-        Object ghostObj = new Object(sGhost0);
+        //Object ghostObj = new Object(sGhost0);
         Object angelObj = new Object(sAngel1);
         Object crownObj = new Object(sCrown);
+        Ghost ghost;
         public Actor act;
+        bool first = false;
         //public Text text1;
         public MyGame()
         {
             act = new Girl();
+            ghost = new Ghost();
             AddRoom("roomForest1", new Room(sForest1, new Line(900, 1100, 450, 450)));
             AddRoom("roomForest2", new Room(sForest2, new Line(0, 0, 0, 0)));
             AddRoom("roomForest3", new Room(sForest1, new Line(0, 0, 0, 0)));
@@ -32,11 +35,12 @@ namespace DREAMS
             SetRoom("roomForest1");
             act.x = 1400;
             act.y = 450;
-            PlaceObject(ghostObj, 200, 450);
+            act.inventory = new List<object>();
+            PlaceObject(ghost, 200, 450);
             PlaceObject(crownObj, 318, 260);
             //crownObj.insideScript = ChangeToForest2;
-            act.insideScript = ChangeToForest2; //пересечение с линией комнаты
-            //act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
+            //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
+            act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
             //StartScript(GhostMove);
         }
 
@@ -56,19 +60,22 @@ namespace DREAMS
 
         void StartDialogWithGhost()
         {
+            if (first) return;
             GraphicsManager.AddSprite(sDialogWindow, 0, 670);
             GraphicsManager.AddText(50, 700, "А ты совсем не страшный");
             //curText = new Text("А ты совсем не страшный", 50, 800);
             act.Stop(); //остановить
             act.BunRun(); //запретить перемещение
+            Thread.Sleep(50);
+            first = true;
         }
         void GhostMove()
         {
             Random r = new Random();
             while (true)
             {
-                ghostObj.x += r.Next(-10, 10);
-                ghostObj.y += r.Next(-10, 10);
+                ghost.x += r.Next(-10, 10);
+                ghost.y += r.Next(-10, 10);
                 Thread.Sleep(50);
             }
         }

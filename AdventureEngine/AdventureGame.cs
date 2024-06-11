@@ -76,13 +76,21 @@ namespace DREAMS
         {
             CurrentRoom.Update();
         }
+        /// <summary>
+        /// проверка кликов по объектам
+        /// </summary>
+        /// <param name="MouseX">координата мыши по x</param>
+        /// <param name="MouseY">координата мыши по y</param>
         public void CheckClick(int MouseX, int MouseY)
         {
             foreach ( Object obj in CurrentRoom.objects)
             {
-                if (MouseX >= obj.sprite.x && MouseX <= obj.sprite.x + obj.sprite.img.Width)
-                    if (MouseY >= obj.sprite.y && MouseY <= obj.sprite.y + obj.sprite.img.Height)
+                //if (obj is Actor) //если убрать actor
+                //    continue;
+                if (MouseX >= obj.x && MouseX <= obj.x + obj.width)
+                    if (MouseY >= obj.y && MouseY <= obj.y + obj.height)
                         obj.StartScriptClick();
+                        //obj.clickScript = obj.StartScriptClick();
             }
         }
     }
