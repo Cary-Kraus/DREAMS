@@ -8,7 +8,7 @@ using System.Drawing.Text;
 
 namespace AdventureEngine
 {
-    public class Text
+    public class Text : Object
     {
         public string text;
         public int x;

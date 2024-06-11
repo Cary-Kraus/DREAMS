@@ -27,8 +27,8 @@ namespace DREAMS
             z = 0;
             currentState = "default";
             selfLine = new Line(sprite.x, sprite.x + sprite.img.Width, sprite.y, sprite.y - sprite.img.Height);
-            width = sprite.size.Width;
-            height = sprite.size.Height;
+            width = sprite.img.Width;
+            height = sprite.img.Height;
         }
         
         /// <summary>
@@ -63,13 +63,12 @@ namespace DREAMS
         {
 
         }
-        public void StartScriptClick()
+        public virtual void StartScriptClick()
         {
-            if (!clicked)
-                clicked = true;
-            x = x + 10;
-            y = y + 10;
-
+            //if (!clicked)
+            //    clicked = true;
+            //x = x + 10;
+            //y = y + 10;
         }
     }
 }

@@ -49,7 +49,14 @@ namespace DREAMS
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            game.CheckClick(MousePosition.X, MousePosition.Y);
+            game.CheckMouseClick(MousePosition.X, MousePosition.Y);
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (game.CheckMouseMove(MousePosition.X, MousePosition.Y))
+                Cursor = Cursors.Hand;
+            else Cursor = Cursors.Default;
         }
     }
 }

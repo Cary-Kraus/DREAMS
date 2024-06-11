@@ -44,7 +44,7 @@ namespace DREAMS
                 @"Sprites\act\go\right\7.png",
                 @"Sprites\act\go\right\8.png"}))
         {
-            //пусто
+            //
         }
             
         public void MeetGhost()

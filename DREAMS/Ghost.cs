@@ -9,6 +9,8 @@ namespace DREAMS
 {
     internal class Ghost : Object
     {
+        //ClickScript clickScript;
+
         public Ghost() : base(new Sprite(@"Sprites\ghost\stay\1.png"))
         {
             Animation stay = new Animation(new List<string>(){ @"Sprites\ghost\stay\1.png", @"Sprites\ghost\stay\2.png", @"Sprites\ghost\stay\3.png", @"Sprites\ghost\stay\4.png" });
@@ -22,6 +24,15 @@ namespace DREAMS
             };
             currentState = "Stay";
             sprite = states["Stay"];
+        }
+        public override void StartScriptClick()
+        {
+            Scare();
+        }
+        public void Scare()
+        {
+            //clickScript = Scare();
+            SetState("Scary");
         }
     }
 }

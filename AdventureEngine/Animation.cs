@@ -12,6 +12,7 @@ namespace AdventureEngine
         Image[] images;
         int cur_frame; //текущий кадр
         public bool running; //запущена ли анимация
+        Size cursize;
 
         public Animation(List<string> frames)
         {
@@ -23,6 +24,8 @@ namespace AdventureEngine
                 images[i] = new Sprite(frames[i]).img; //заполнить массив картинками
             img = images[0];
             running = true;
+            cursize.Width = img.Width;
+            cursize.Height = img.Height;
         }
         /// <summary>
         /// Обновляет(заменяет на следующий) текущий спрайт в анимации
