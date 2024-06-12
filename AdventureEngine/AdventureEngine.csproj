@@ -40,6 +40,7 @@
     <Compile Include="AdventureGame.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="GraphicsManager.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Room.cs" />

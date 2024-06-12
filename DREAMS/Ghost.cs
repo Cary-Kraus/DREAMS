@@ -27,12 +27,19 @@ namespace DREAMS
         }
         public override void StartScriptClick()
         {
-            Scare();
+            VeryScare();
         }
         public void Scare()
         {
-            //clickScript = Scare();
             SetState("Scary");
+        }
+        public void VeryScare()
+        {
+        //вычислить динамически, используя размер и координаты стандартного спрайта
+            x = 130;
+            y = 10;
+            z = 19;
+            SetState("VeryScary");
         }
     }
 }

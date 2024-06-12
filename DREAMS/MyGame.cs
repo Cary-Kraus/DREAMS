@@ -19,7 +19,7 @@ namespace DREAMS
 
         //Object ghostObj = new Object(sGhost0);
         Object angelObj = new Object(sAngel1);
-        Object crownObj = new Object(sCrown);
+        Object crownObj = new Item(sCrown);
         Ghost ghost;
         public Actor act;
         bool first = false;
@@ -37,7 +37,7 @@ namespace DREAMS
             act.y = 450;
             act.inventory = new List<object>();
             PlaceObject(ghost, 200, 450);
-            PlaceObject(crownObj, 318, 260);
+            PlaceObject(crownObj, 310, 260);
             //crownObj.insideScript = ChangeToForest2;
             //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
             act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
