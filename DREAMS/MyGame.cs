@@ -10,16 +10,13 @@ namespace DREAMS
     {     
         public static Sprite sForest1 = new Sprite(@"Sprites\лес1.png");
         public static Sprite sForest2 = new Sprite(@"Sprites\лес2.png");
-        public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");
-        //public static Sprite sGhost0 = new Sprite(@"Sprites\ghost0.png");
-        //public static Sprite sGhost1 = new Sprite(@"Sprites\ghost1.png");
-        //public static Sprite sGhost2 = new Sprite(@"Sprites\ghost2.png");    
+        public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");   
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
         public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
 
         //Object ghostObj = new Object(sGhost0);
-        Object angelObj = new Object(sAngel1);
-        Object crownObj = new Item(sCrown);
+        AdventureEngine.Object angelObj = new AdventureEngine.Object(sAngel1);
+        AdventureEngine.Object crownObj = new Item(sCrown);
         Ghost ghost;
         public Actor act;
         bool first = false;
@@ -61,9 +58,9 @@ namespace DREAMS
         void StartDialogWithGhost()
         {
             if (first) return;
-            GraphicsManager.AddSprite(sDialogWindow, 0, 670);
-            GraphicsManager.AddText(50, 700, "А ты совсем не страшный");
-            //curText = new Text("А ты совсем не страшный", 50, 800);
+            Text tempText = new Text(Text.GetTextFromFile(11)) ;
+            GraphicsManager.AddSprite(tempText.sprite, 0, 670);
+            GraphicsManager.AddText(50, 700, tempText.text);       
             act.Stop(); //остановить
             act.BunRun(); //запретить перемещение
             Thread.Sleep(50);

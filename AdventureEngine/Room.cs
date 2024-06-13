@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DREAMS
+namespace AdventureEngine
 {
     /// <summary>
     /// Игровая локация.
@@ -31,7 +31,7 @@ namespace DREAMS
         }
 
         /// <summary>
-        /// Обновляет комнату (пока что нет)
+        /// Обновляет комнату
         /// и проверяет линию на столкновения с персонажем и в случае столкновения вызывает скрипт
         /// </summary>
         public override void Update()
@@ -62,6 +62,12 @@ namespace DREAMS
             o.y = y;
             objects.Add(o);
             GraphicsManager.AddSprite(o.sprite, x, y);
+        }
+
+        public void DelObject(Object obj)
+        {
+            objects.Remove(obj);
+            GraphicsManager.DelSprite(obj.sprite);
         }
     }
 }

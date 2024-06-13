@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using AdventureEngine;
 
-namespace DREAMS
+namespace AdventureEngine
 {
     public class Item : Object
     {
+        public bool locked = false;
 
         public Item(Sprite s) : base(s)
         {

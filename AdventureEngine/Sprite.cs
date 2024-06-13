@@ -11,9 +11,9 @@ namespace AdventureEngine
     {
         public Image img;
         public Size size;
-        public int x;
-        public int y;
-        public int z;
+        //public int x;
+        //public int y;
+        //public int z;
         public int tag;
 
         public Sprite(string name)
@@ -29,7 +29,7 @@ namespace AdventureEngine
 
         }
 
-        public virtual void Update()
+        public override void Update()
         {
 
         }

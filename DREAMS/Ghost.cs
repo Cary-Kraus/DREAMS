@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DREAMS
 {
-    internal class Ghost : Object
+    internal class Ghost : AdventureEngine.Object
     {
         //ClickScript clickScript;
 
@@ -40,6 +40,6 @@ namespace DREAMS
             y = 10;
             z = 19;
             SetState("VeryScary");
-        }
+        }        
     }
 }

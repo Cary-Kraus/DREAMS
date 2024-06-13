@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DREAMS
+namespace AdventureEngine
 {
     public class Actor : Object
     {
@@ -55,7 +55,7 @@ namespace DREAMS
         {
             stop_input = true;
         }
-        public void PickUpObject(Object obj)
+        public override void PickUpObject(Object obj)
         {
             inventory.Add(obj);
         }

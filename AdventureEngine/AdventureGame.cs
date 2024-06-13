@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DREAMS
+namespace AdventureEngine
 {
     
     public class AdventureGame
@@ -29,6 +29,7 @@ namespace DREAMS
         {
             rooms.Add(name, room);
         }
+
         /// <summary>
         /// Устанавливает комнату как текущую. 
         /// </summary>
@@ -85,8 +86,12 @@ namespace DREAMS
         {
             foreach (Object obj in CurrentRoom.objects)
             {
-                //if (obj is Actor) //если убрать actor
-                //    continue;
+                //if (obj is Item)
+                //{
+                //    //находим actor и вызываем у него PickUpObject
+                //    CurrentRoom.objects[CurrentRoom.objects.FindIndex((p) => p is Actor)].PickUpObject(obj);
+                //    CurrentRoom.DelObject(obj);
+                //}
                 if (MouseX >= obj.x && MouseX <= obj.x + obj.width)
                     if (MouseY >= obj.y && MouseY <= obj.y + obj.height)
                         obj.StartScriptClick();

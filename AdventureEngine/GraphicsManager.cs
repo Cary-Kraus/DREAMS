@@ -13,7 +13,7 @@ namespace AdventureEngine
     public static class GraphicsManager
     {
         static List<Sprite> sprites = new List<Sprite>();
-        static List<Text> textMessages = new List<Text>();
+        static List<Text> textMessages = new List<Text>(); //нужно ли?
         static int tag = 0;
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace AdventureEngine
         }
         public static void AddText(int x, int y, string text)
         {
-            textMessages.Add(new Text(text, x, y));
+            textMessages.Add(new Text(text));
         }
         public static void ClearText()
         {

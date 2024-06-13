@@ -7,7 +7,7 @@ using AdventureEngine;
 
 namespace DREAMS
 {
-    internal class Girl : Actor
+    internal class Girl : AdventureEngine.Actor
     {
 
         public Girl() : base(

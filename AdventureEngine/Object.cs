@@ -1,7 +1,7 @@
 ﻿using AdventureEngine;
 using System.Collections.Generic;
 
-namespace DREAMS
+namespace AdventureEngine
 {
     public class Object
     {
@@ -30,7 +30,16 @@ namespace DREAMS
             width = sprite.img.Width;
             height = sprite.img.Height;
         }
-        
+        public Object()
+        {
+
+        }
+
+        public virtual void PickUpObject(Object obj)
+        {
+
+        }
+
         /// <summary>
         /// Обновляет координты спрайта и линии объекта 
         /// </summary>
