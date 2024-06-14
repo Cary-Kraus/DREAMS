@@ -55,9 +55,11 @@ namespace AdventureEngine
         {
             sprites.Clear();
         }
-        public static void AddText(int x, int y, string text)
+        public static void AddText(int x, int y, Text text)
         {
-            textMessages.Add(new Text(text));
+            text.x = x;
+            text.y = y;
+            textMessages.Add(text);
         }
         public static void ClearText()
         {

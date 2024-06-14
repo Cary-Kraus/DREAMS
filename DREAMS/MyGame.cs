@@ -12,11 +12,13 @@ namespace DREAMS
         public static Sprite sForest2 = new Sprite(@"Sprites\лес2.png");
         public static Sprite sDialogWindow = new Sprite(@"Sprites\диалоговое окно.png");   
         public static Sprite sAngel1 = new Sprite(@"Sprites\angel1.png");
-        public static Sprite sCrown = new Sprite(@"Sprites\crown.png");
+        public static Sprite sCrown1 = new Sprite(@"Sprites\crownV.png");
+        public static Sprite sCrown2 = new Sprite(@"Sprites\crownH.png");
 
         //Object ghostObj = new Object(sGhost0);
         AdventureEngine.Object angelObj = new AdventureEngine.Object(sAngel1);
-        AdventureEngine.Object crownObj = new Item(sCrown);
+        AdventureEngine.Object crownObj = new Item(sCrown1);
+        Text caption;
         Ghost ghost;
         public Actor act;
         bool first = false;
@@ -33,8 +35,9 @@ namespace DREAMS
             act.x = 1400;
             act.y = 450;
             act.inventory = new List<object>();
-            PlaceObject(ghost, 200, 450);
-            PlaceObject(crownObj, 310, 260);
+            caption = new Text("Для продолжения нажмите на Enter");
+            PlaceObject(ghost, 240, 450);
+            PlaceObject(crownObj, 290, 230);
             //crownObj.insideScript = ChangeToForest2;
             //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
             act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
@@ -55,16 +58,22 @@ namespace DREAMS
             act.y = 450;
         }
 
+        void StartDialog()
+        {
+
+        }
         void StartDialogWithGhost()
         {
             if (first) return;
-            Text tempText = new Text(Text.GetTextFromFile(11)) ;
+            Text tempText = new Text(Text.GetTextFromFile(1)) ;
             GraphicsManager.AddSprite(tempText.sprite, 0, 670);
-            GraphicsManager.AddText(50, 700, tempText.text);       
+            GraphicsManager.AddText(50, 700, tempText);       
             act.Stop(); //остановить
             act.BunRun(); //запретить перемещение
-            Thread.Sleep(50);
+            Thread.Sleep(50);            
             first = true;
+            //Thread.SpinWait  -  ?
+            //Thread.Yeild  -  ?
         }
         void GhostMove()
         {

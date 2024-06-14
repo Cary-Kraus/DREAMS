@@ -36,8 +36,8 @@ namespace DREAMS
         public void VeryScare()
         {
         //вычислить динамически, используя размер и координаты стандартного спрайта
-            x = 130;
-            y = 10;
+            x = 190;
+            y = 211;
             z = 19;
             SetState("VeryScary");
         }        

@@ -17,12 +17,8 @@ namespace AdventureEngine
         PrivateFontCollection fontCollection = new PrivateFontCollection();
         public Font font;
         public Brush brush;
-        public Sprite sBackGrnd;
         public string[] texts;
         int cur_text = 0;
-        //public Sprite sprite;
-
-
 
         public Text(string text)
         {            
@@ -33,7 +29,6 @@ namespace AdventureEngine
             FontFamily family = fontCollection.Families[0];
             font = new Font(family, 22);
             brush = new SolidBrush(Color.Plum);
-            //sprite = new Sprite(@"Sprites\диалоговое окно.png");
             sprite = new Sprite(@"Sprites\диалоговое окно.png");
         }
         /// <summary>

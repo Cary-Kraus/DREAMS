@@ -58,5 +58,13 @@ namespace DREAMS
                 Cursor = Cursors.Hand;
             else Cursor = Cursors.Default;
         }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                game.act.MoveLeft();
+            }
+        }
     }
 }
