@@ -6,25 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Text;
 using System.IO;
+using System.Threading;
 
 namespace AdventureEngine
 {
     public class Text : Object
     {
         public string text;
-        //public int x;
-        //public int y;
         PrivateFontCollection fontCollection = new PrivateFontCollection();
         public Font font;
         public Brush brush;
         public string[] texts;
         int cur_text = 0;
 
-        public Text(string text)
+        public Text(string text, int x, int y) : base(null)
         {            
             this.text = text;
-            //this.x = x;
-            //this.y = y;
+            this.x = x;
+            this.y = y;
+            width = 200;
+            height = 100;
             fontCollection.AddFontFile("Fifaks.ttf"); // файл шрифта
             FontFamily family = fontCollection.Families[0];
             font = new Font(family, 22);
@@ -39,7 +40,10 @@ namespace AdventureEngine
             //при каждом вызове этого метод текущий текс должен меняться на след.
             //меняем текущий текст. на след. в массиве
             text = GetTextFromFile(cur_text++);
-
+            if (GetTextFromFile(cur_text++) == " ")
+            {
+                //остановить скрипт
+            }
         }
         /// <summary>
         /// Возвращает строку формата Text из файла по индексу
@@ -61,10 +65,10 @@ namespace AdventureEngine
                     lineToReturn = line.Substring(line.IndexOf(' ') + 1);
                     break;
                 }
-            }
+                else if (line.StartsWith(" "))
+                    lineToReturn = " ";
+            }             
 
-            if (lineToReturn == "")
-                Console.WriteLine($"Текст под номером {numberOfText} не найден");
             return lineToReturn;
         }
     }

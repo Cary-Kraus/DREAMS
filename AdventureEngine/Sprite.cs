@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace AdventureEngine
 {
-    public class Sprite : Object
+    public class Sprite
     {
         public Image img;
         public Size size;
-        //public int x;
-        //public int y;
-        //public int z;
+        public int x;
+        public int y;
+        public int z;
         public int tag;
 
         public Sprite(string name)
@@ -24,12 +24,14 @@ namespace AdventureEngine
             size.Width = img.Width;
             size.Height = img.Height;
         }
+
         public Sprite()
         {
 
         }
 
-        public override void Update()
+
+        public virtual void Update()
         {
 
         }

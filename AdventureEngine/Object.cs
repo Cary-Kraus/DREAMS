@@ -18,21 +18,33 @@ namespace AdventureEngine
         public delegate void ClickScript();
         public InsideScript insideScript = null;
         public ClickScript clickScript = null;
+        /// <summary>
+        /// флаг присутствия объекта в комнате
+        /// </summary>
         public bool present = true;
-        public bool clicked = false;
+        /// <summary>
+        /// флаг отображения объекта
+        /// </summary>
+        public bool visible = true;
 
-        public Object(Sprite s)
+        public Object(Sprite s, int width = 0, int height = 0)
         {
             sprite = s;
             z = 0;
             currentState = "default";
-            selfLine = new Line(sprite.x, sprite.x + sprite.img.Width, sprite.y, sprite.y - sprite.img.Height);
-            width = sprite.img.Width;
-            height = sprite.img.Height;
-        }
-        public Object()
-        {
-
+            this.visible = s != null;
+            if (visible)
+            {
+                selfLine = new Line(sprite.x, sprite.x + sprite.img.Width, sprite.y, sprite.y - sprite.img.Height);
+                this.width = sprite.img.Width;
+                this.height = sprite.img.Height;
+            } 
+            else
+            {
+                this.width = width;
+                this.height = height;
+                selfLine = new Line(0, 0, width, 0);
+            }
         }
 
         public virtual void PickUpObject(Object obj)
@@ -45,13 +57,16 @@ namespace AdventureEngine
         /// </summary>
         public virtual void Update()
         {
-            sprite.x = x;
-            sprite.y = y;
-            sprite.z = z;
-            selfLine.x1 = sprite.x;
-            selfLine.x2 = selfLine.x1 + sprite.img.Width;
-            selfLine.y1 = sprite.y;
-            selfLine.y2 = sprite.y;
+            if (visible)
+            {
+                sprite.x = x;
+                sprite.y = y;
+                sprite.z = z;
+            }
+            selfLine.x1 = x;
+            selfLine.x2 = selfLine.x1 + width;
+            selfLine.y1 = y;
+            selfLine.y2 = y;
         }
         /// <summary>
         /// Меняет текущее состояние объекта на новое,

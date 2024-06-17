@@ -12,8 +12,18 @@ namespace AdventureEngine
     /// </summary>
     public class Room : Object
     {
+        /// <summary>
+        /// границы комнаты или во всю ширину или ограничены, где можно ходить
+        /// </summary>
         Line line;
+        /// <summary>
+        /// текущий список объектов
+        /// </summary>
         public List<Object> objects;
+        /// <summary>
+        /// временный список объектов для добавления
+        /// </summary>
+        public List<Object> tobjects;
         public Actor mainActor;
         public int roomHeigt;
         public int roomWidht;
@@ -23,9 +33,11 @@ namespace AdventureEngine
             this.line = line;
             this.sprite = sprite;
             objects = new List<Object>();
+            tobjects = new List<Object>();
             roomHeigt = sprite.size.Height;
             roomWidht = sprite.size.Width - 140; //отнимается ширина спрайта actor
-            //нужно сделать line вместо границ комнаты.
+            //нужно сделать line - граница комнаты.
+
             //тогда в комнате может быть несколько line (список в конструктор)
             //Тогда переход из одной комнаты в другую может быть открыт или закрыт
             //можно сделать наследника line door, у него будет состояние opened/closed
@@ -39,13 +51,18 @@ namespace AdventureEngine
         /// </summary>
         public override void Update()
         {
+             objects.Clear();
+            foreach (Object o in tobjects)
+                objects.Add(o);
+            
             foreach (Object o in objects)
-            {
-                if (o.selfLine.IsInside(mainActor.selfLine) && line.IsInside(mainActor.selfLine) && o.insideScript != null )
-                    o.insideScript();
-                if (o.x >= roomWidht)//столкновение с границей комнаты
-                    o.x -= 5;
+            {               
                 o.Update();
+                //if (o == mainActor && o.selfLine.IsInside(mainActor.selfLine))
+                // проверяем если o - mainActor и внутри line комнаты
+                // если нет то возвращаем mainActor
+                if (o.selfLine.IsInside(mainActor.selfLine) && o.insideScript != null )
+                    o.insideScript();             
             }
             List<Object> objs = new List<Object>();
             foreach (Object o in objects)
@@ -63,14 +80,16 @@ namespace AdventureEngine
         {
             o.x = x;
             o.y = y;
-            objects.Add(o);
-            GraphicsManager.AddSprite(o.sprite, x, y);
+            tobjects.Add(o);
+            if (o.visible)
+                GraphicsManager.AddSprite(o.sprite, x, y);
         }
 
         public void DelObject(Object obj)
         {
             objects.Remove(obj);
-            GraphicsManager.DelSprite(obj.sprite);
+            if (obj.visible)
+                GraphicsManager.DelSprite(obj.sprite);
         }
     }
 }

@@ -14,15 +14,17 @@ namespace AdventureEngine
     
     public class AdventureGame
     {
-        public Dictionary<string, Room> rooms;            
+        public Dictionary<string, Room> rooms;
+        public List<Script> scripts = new List<Script>();
         public static Room CurrentRoom = null;
         public static Text curText = null;
         public Actor mainActor;
-        delegate void Script();
+        public delegate void Script();
 
         public AdventureGame()
         {
-            rooms = new Dictionary<string, Room>();
+            rooms = new Dictionary<string, Room>();  
+            //заполнить список скриптов
         }
 
         public void AddRoom(string name, Room room)
@@ -65,13 +67,15 @@ namespace AdventureEngine
         {
             mainActor = actor;            
         }
-        public static void StartScript(ThreadStart script)
+        public void StartScript(ThreadStart script) //static?
         {
             new Thread(script).Start();
         }
-        public static void StopScript()
+        public void StopScript(Thread script) //static?
         {
-            //создать список скриптов 
+            //нужен список
+            script.Abort();
+            //Script script1 = scripts.Find(p => p == script);
         }
         public void Update()
         {
@@ -86,12 +90,13 @@ namespace AdventureEngine
         {
             foreach (Object obj in CurrentRoom.objects)
             {
-                //if (obj is Item)
-                //{
-                //    //находим actor и вызываем у него PickUpObject
-                //    CurrentRoom.objects[CurrentRoom.objects.FindIndex((p) => p is Actor)].PickUpObject(obj);
-                //    CurrentRoom.DelObject(obj);
-                //}
+                if (obj is Item)
+                {
+                    //находим actor и вызываем у него PickUpObject
+                    CurrentRoom.objects[CurrentRoom.objects.FindIndex((p) => p is Actor)].PickUpObject(obj);
+                    CurrentRoom.DelObject(obj);
+                    GraphicsManager.DelSprite(obj.sprite);
+                }
                 if (MouseX >= obj.x && MouseX <= obj.x + obj.width)
                     if (MouseY >= obj.y && MouseY <= obj.y + obj.height)
                         obj.StartScriptClick();

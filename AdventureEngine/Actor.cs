@@ -55,9 +55,10 @@ namespace AdventureEngine
         {
             stop_input = true;
         }
-        public override void PickUpObject(Object obj)
+        public override void PickUpObject(Object obj) //чтобы actor подбирал object
         {
             inventory.Add(obj);
+
         }
     }
 }

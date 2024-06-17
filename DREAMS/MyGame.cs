@@ -35,12 +35,13 @@ namespace DREAMS
             act.x = 1400;
             act.y = 450;
             act.inventory = new List<object>();
-            caption = new Text("Для продолжения нажмите на Enter");
+            AdventureEngine.Object trigger = new AdventureEngine.Object(null, 200, 0);
             PlaceObject(ghost, 240, 450);
             PlaceObject(crownObj, 290, 230);
+            PlaceObject(trigger, 1000, 230);
             //crownObj.insideScript = ChangeToForest2;
             //act.insideScript = ChangeToForest2; //пересечение с линией комнаты
-            act.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
+            trigger.insideScript = StartDialogWithGhost; //пересечение с линией комнаты
             //StartScript(GhostMove);
         }
 
@@ -65,13 +66,15 @@ namespace DREAMS
         void StartDialogWithGhost()
         {
             if (first) return;
-            Text tempText = new Text(Text.GetTextFromFile(1)) ;
+            Text tempText = new Text(Text.GetTextFromFile(1), 50, 700) ;
             GraphicsManager.AddSprite(tempText.sprite, 0, 670);
-            GraphicsManager.AddText(50, 700, tempText);       
+            GraphicsManager.AddText(50, 700, tempText);
+            PlaceObject(tempText, 50, 700);
             act.Stop(); //остановить
             act.BunRun(); //запретить перемещение
             Thread.Sleep(50);            
             first = true;
+            tempText.clickScript = GhostMove;
             //Thread.SpinWait  -  ?
             //Thread.Yeild  -  ?
         }
