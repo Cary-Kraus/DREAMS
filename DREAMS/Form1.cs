@@ -10,7 +10,6 @@ namespace DREAMS
     public partial class Form1 : Form
     {
         MyGame game;
-        int i = 0;
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             GraphicsManager.UpdateGraphics(e.Graphics);
@@ -42,12 +41,6 @@ namespace DREAMS
             {
                 game.act.MoveRight();
             }
-
-            //if (e.KeyData == Keys.Enter)
-            //{
-            //    AdventureEngine.Text.GetTextFromFile(++i);
-            //}
-
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {

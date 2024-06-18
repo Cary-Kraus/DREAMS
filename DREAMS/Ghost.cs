@@ -9,7 +9,6 @@ namespace DREAMS
 {
     internal class Ghost : AdventureEngine.Object
     {
-        //ClickScript clickScript;
 
         public Ghost() : base(new Sprite(@"Sprites\ghost\stay\1.png"))
         {
@@ -35,7 +34,6 @@ namespace DREAMS
         }
         public void VeryScare()
         {
-        //вычислить динамически, используя размер и координаты стандартного спрайта
             x = 190;
             y = 211;
             z = 19;

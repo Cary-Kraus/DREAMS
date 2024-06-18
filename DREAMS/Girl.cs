@@ -7,7 +7,7 @@ using AdventureEngine;
 
 namespace DREAMS
 {
-    internal class Girl : AdventureEngine.Actor
+    internal class Girl : Actor
     {
 
         public Girl() : base(
@@ -44,12 +44,8 @@ namespace DREAMS
                 @"Sprites\act\go\right\7.png",
                 @"Sprites\act\go\right\8.png"}))
         {
-            //
-        }
-            
-        public void MeetGhost()
-        {
 
         }
+            
     }
 }

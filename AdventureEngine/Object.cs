@@ -6,11 +6,8 @@ namespace AdventureEngine
     public class Object
     {
         public Sprite sprite;
-        public int x;
-        public int y;
-        public int z;
-        public int width;
-        public int height;
+        public int x, y, z;
+        public int width, height;
         public Dictionary<string, Sprite> states = new Dictionary<string, Sprite>();
         public string currentState;
         public Line selfLine;
@@ -89,10 +86,7 @@ namespace AdventureEngine
         }
         public virtual void StartScriptClick()
         {
-            //if (!clicked)
-            //    clicked = true;
-            //x = x + 10;
-            //y = y + 10;
+
         }
     }
 }

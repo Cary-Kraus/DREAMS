@@ -15,7 +15,7 @@ namespace AdventureEngine
     public class AdventureGame
     {
         public Dictionary<string, Room> rooms;
-        public List<Script> scripts = new List<Script>();
+        public Dictionary<string, Thread> scripts = new Dictionary<string, Thread>();
         public static Room CurrentRoom = null;
         public static Text curText = null;
         public Actor mainActor;
@@ -67,15 +67,17 @@ namespace AdventureEngine
         {
             mainActor = actor;            
         }
-        public void StartScript(ThreadStart script) //static?
+        public void StartScript(string name, ThreadStart script)
         {
-            new Thread(script).Start();
+            Thread t = new Thread(script);
+            scripts.Add(name, t);
+            t.Start();
         }
-        public void StopScript(Thread script) //static?
+        public void StopScript(string name)
         {
-            //нужен список
-            script.Abort();
-            //Script script1 = scripts.Find(p => p == script);
+            Thread t = scripts[name];
+            t.Abort();
+            scripts.Remove(name);
         }
         public void Update()
         {
@@ -94,7 +96,7 @@ namespace AdventureEngine
                 {
                     //находим actor и вызываем у него PickUpObject
                     CurrentRoom.objects[CurrentRoom.objects.FindIndex((p) => p is Actor)].PickUpObject(obj);
-                    CurrentRoom.DelObject(obj);
+                    obj.present = false;
                     GraphicsManager.DelSprite(obj.sprite);
                 }
                 if (MouseX >= obj.x && MouseX <= obj.x + obj.width)

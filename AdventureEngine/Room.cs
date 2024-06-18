@@ -23,26 +23,18 @@ namespace AdventureEngine
         /// <summary>
         /// временный список объектов для добавления
         /// </summary>
-        public List<Object> tobjects;
+        public List<Object> tempObjects;
         public Actor mainActor;
-        public int roomHeigt;
-        public int roomWidht;
+        public int roomHeigt, roomWidht;
 
         public Room(Sprite sprite, Line line) : base(sprite)
         {
             this.line = line;
             this.sprite = sprite;
             objects = new List<Object>();
-            tobjects = new List<Object>();
+            tempObjects = new List<Object>();
             roomHeigt = sprite.size.Height;
-            roomWidht = sprite.size.Width - 140; //отнимается ширина спрайта actor
-            //нужно сделать line - граница комнаты.
-
-            //тогда в комнате может быть несколько line (список в конструктор)
-            //Тогда переход из одной комнаты в другую может быть открыт или закрыт
-            //можно сделать наследника line door, у него будет состояние opened/closed
-            //но тк line не наследуется от object, у door:line не будет спрайта или можно его добавить
-            //тогда его отдельно нужно добавлять в список с objects, хотя объектом он являться не будет
+            roomWidht = sprite.size.Width - 140;
         }
 
         /// <summary>
@@ -52,7 +44,7 @@ namespace AdventureEngine
         public override void Update()
         {
              objects.Clear();
-            foreach (Object o in tobjects)
+            foreach (Object o in tempObjects)
                 objects.Add(o);
             
             foreach (Object o in objects)
@@ -80,7 +72,7 @@ namespace AdventureEngine
         {
             o.x = x;
             o.y = y;
-            tobjects.Add(o);
+            tempObjects.Add(o);
             if (o.visible)
                 GraphicsManager.AddSprite(o.sprite, x, y);
         }

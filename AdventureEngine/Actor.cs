@@ -7,7 +7,6 @@ namespace AdventureEngine
     public class Actor : Object
     {
         public const int SPEED_X = 3;
-        //public readonly int SPEED_X = 3;
         public static int MaxX;
         public List<object> inventory;
         public bool stop_input = false;
@@ -58,7 +57,6 @@ namespace AdventureEngine
         public override void PickUpObject(Object obj) //чтобы actor подбирал object
         {
             inventory.Add(obj);
-
         }
     }
 }

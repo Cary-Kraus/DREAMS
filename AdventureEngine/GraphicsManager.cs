@@ -13,7 +13,7 @@ namespace AdventureEngine
     public static class GraphicsManager
     {
         static List<Sprite> sprites = new List<Sprite>();
-        static List<Text> textMessages = new List<Text>(); //нужно ли?
+        static List<Text> textMessages = new List<Text>();
         static int tag = 0;
 
         /// <summary>

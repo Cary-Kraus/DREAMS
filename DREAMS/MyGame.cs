@@ -15,14 +15,11 @@ namespace DREAMS
         public static Sprite sCrown1 = new Sprite(@"Sprites\crownV.png");
         public static Sprite sCrown2 = new Sprite(@"Sprites\crownH.png");
 
-        //Object ghostObj = new Object(sGhost0);
         AdventureEngine.Object angelObj = new AdventureEngine.Object(sAngel1);
         AdventureEngine.Object crownObj = new Item(sCrown1);
-        Text caption;
         Ghost ghost;
         public Actor act;
         bool first = false;
-        //public Text text1;
         public MyGame()
         {
             act = new Girl();
@@ -57,11 +54,6 @@ namespace DREAMS
             SetRoom("roomForest3");
             act.x = 1400;
             act.y = 450;
-        }
-
-        void StartDialog()
-        {
-
         }
         void StartDialogWithGhost()
         {
